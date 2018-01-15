@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="298px" height="72px" viewBox="0 0 298 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#00A388" offset="0%"></stop>
+            <stop stop-color="#0DC5A7" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="logo">
+            <path d="M25,12 L37,43.8749651 C33,38.2833151 29,35.48749 25,35.48749 C19,35.48749 13,51.6762312 13,43.8749651 C13,38.6741211 17,28.0491327 25,12 Z" id="Triangle" fill="url(#linearGradient-1)"></path>
+            <path d="M51,12 C59,30.8197525 63,41.5577683 63,44.2140474 C63,48.198466 57,35.7373473 51,35.7373473 C47,35.7373473 43,38.562914 39,44.2140474 L51,12 Z" id="Triangle-Copy" fill="url(#linearGradient-1)"></path>
+            <path d="M38,14 C53.3333333,39.2043504 61,53.5852362 61,57.1426575 C61,62.4787895 49.5,45.7902384 38,45.7902384 C26.5,45.7902384 15,67.6516921 15,57.1426575 C15,50.1366345 22.6666667,35.7557486 38,14 Z" id="Triangle-Copy-2" fill="url(#linearGradient-1)"></path>
+            <path d="M38.5,26 C40.3333333,26 42.1666667,30.3333333 44,39 C41.5062297,37.8931549 39.6728963,37.3397324 38.5,37.3397324 C37.3271037,37.3397324 35.4937703,37.8931549 33,39 C34.8333333,30.3333333 36.6666667,26 38.5,26 Z" id="Triangle-2" fill="#FFFFFF"></path>
+            <text id="Token-Media" font-family="Futura-Bold, Futura" font-size="35" font-weight="bold" letter-spacing="-1.79999995" fill="#4A4A4A">
+                <tspan x="72" y="51">Token Medi</tspan>
+                <tspan x="270.16" y="51">a</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

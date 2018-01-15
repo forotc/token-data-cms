@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html data-color="#00a388" class="no-js ie6 oldie btn-rounded btn-3d blank-true" lang="en-US"> <![endif]-->
+<!--[if IE 7]>
+<html data-color="#00a388" class="no-js ie7 oldie btn-rounded btn-3d blank-true" lang="en-US"> <![endif]-->
+<!--[if IE 8]>
+<html data-color="#00a388" class="no-js ie8 oldie btn-rounded btn-3d blank-true" lang="en-US"> <![endif]-->
+<!--[if IE 9]>
+<html data-color="#00a388" class="no-js ie9 oldie btn-rounded btn-3d blank-true" lang="en-US"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<!--<![endif]-->
+
+<html data-color="#00a388" class="no-js btn-rounded btn-3d blank-true" lang="en-US">
+<head>
+	[#assign base=request.contextPath /]
+    <!--TITLE-->
+    <title>TOKEN MEDIA</title>
+    <!-- META TAGS -->
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- LINK TAGS -->
+    <link rel='stylesheet' href='${base}/css/js_composer.css' type='text/css' media='all'/>
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+    <link rel="stylesheet" href="${base}/css/style.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="${base}/css/common.css" type="text/css" media="screen">
+</head>
+
+<body class="page page-id-156 page-template-default wpb-js-composer js-comp-ver-4.4.4 vc_responsive" style="background-color: #F7F7F7">
+<!-- 整体底板 -->
+<div id="gen-wrap">
+    <div id="wrap" class="nz-wide">
+        <!--移动端头部-->
+        <header class="header mob-header mob-height-90 mob-int-true mob-sidebar-true mob-search-true">
+            <div class="logo-toggle">
+                <div class="container nz-clearfix">
+                    <!--移动端头部logo-->
+                    <div class="logo logo-mob">
+                        <a href="#">
+                            <img src="${base}/img/logo.svg" alt="Logo">
+                        </a>
+                    </div>
+                    <!--移动端功能下拉菜单-->
+                    <div class="menu-toggle" title="Toggle menu">
+                        <span>&nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span>&nbsp;</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-content">
+                <!--移动端下拉菜单内容-->
+                <nav class="header-menu mob-menu nz-clearfix">
+                    <ul id="mob-header-menu" class="menu">
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">排行榜</a></li>
+                        <li><a href="#">商业合作</a></li>
+                    </ul>
+                    <ul id="change-menu" class="menu">
+                        <li><a href="#">English</a></li>
+                        <li><a href="#">Chinese</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </header>
+        <!--宽屏头部-->
+        <header data-fixedh="70" class="header desk desk-height-90 desk-sl-true desk-sl-align-right desk-ls-false desk-di-false desk-fixed-true fixed-height-70 stuck-height-90 stuck-false effect-upperline sub-effect-ghost desk-sidebar-true top-false stuck-top-false menu-border-true">
+            <div class="header-content">
+                <div class="container nz-clearfix">
+                    <div class="header-cont">
+                        <!--宽屏logo-->
+                        <div class="logo logo-desk">
+                            <a href="#">
+                                <img src="${base}/img/logo.svg" alt="Logo">
+                            </a>
+                        </div>
+                        <div class="logo logo-fixed">
+                            <a href="#">
+                                <img src="${base}/img/logo.svg" alt="Logo">
+                            </a>
+                        </div>
+                        <!--中英文切换按钮-->
+                        <nav class="highlights-menu nz-clearfix">
+                            <ul id="highlights-menu" class="menu">
+                                <li>
+                                    <a href="#">
+                                        <img src="${base}/img/chinese.png" alt="lang_pic">
+                                        <span>Chinese</span>
+                                    </a>
+                                    <ol>
+                                        <li>
+                                            <a href="#">
+                                                <img src="${base}/img/english.png" alt="lang_pic">
+                                                <span>English</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img src="${base}/img/chinese.png" alt="lang_pic">
+                                                <span>Chinese</span>
+                                            </a>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!--宽屏导航功能-->
+                        <nav class="header-menu desk-menu nz-clearfix">
+                            <ul class="menu">
+                                <li><a href="#">首页</a></li>
+                                <li><a href="#">排行榜</a></li>
+                                <li><a href="#">商业合作</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--主要展示部分-->
+        <div class='page-full-width' style="min-width: 1100px">
+            <!-- content start -->
+            <div class="content nz-clearfix">
+                <section class="page-content nz-clearfix" style="margin: 40px 0px">
+                    <div class="nz-section horizontal animate-false full-width-true" style="padding: 30px">
+                        <div class="container">
+                            <div class="nz-row">
+                                <div class="official-detail">
+                                    <div class="official-icon">
+                                        <img src="${base}/upload/person1.jpg" alt="user-icon">
+                                    </div>
+                                    <div class="official-right">
+                                        <div class="official-row1">
+                                            <h5>${detail.bizName!""}</h5>
+                                            <div class="show-code">
+                                                <img src="${base}/upload/code_01.jpg" alt="code">
+                                            </div>
+                                            <ul class="official-tag">
+                                                <li>
+                                                    <span>${detail.bizName!""}</span>
+                                                </li>
+<!--                                                 <li>
+                                                    <span>标签1</span>
+                                                </li>
+                                                <li>
+                                                    <span>标签2</span>
+                                                </li> -->
+                                            </ul>
+                                        </div>
+                                        <ul class="official-msg">
+                                            <li>
+                                                <span class="o-content">${detail.wechatid}</span>
+                                            </li>
+                                           <!--  <li>
+                                                <span class="o-label">运营主体：</span>
+                                                <span class="o-content">个人</span>
+                                            </li> -->
+                                            <li>
+                                                <span class="o-label">功能介绍：</span>
+                                                <span class="o-content">${detail.izDesc!""}</span>
+                                            </li>
+                                            <!-- <li>
+                                                <span class="o-label">注册地区：</span>
+                                                <span class="o-content">中国</span>
+                                            </li>
+                                            <li>
+                                                <span class="o-label">注册时间：</span>
+                                                <span class="o-content">3年以上</span>
+                                            </li>
+                                            <li>
+                                                <span class="o-label">所属行业：</span>
+                                                <span class="o-content">资讯</span>
+                                            </li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nz-row" id="chart-box" style="margin-top: 50px">
+                                <div class="chart-header">
+                                    <h5>近7天数据统计</h5>
+                                </div>
+                                <div class="chart-item">
+                                    <div>
+                                        <span class="chart-num">126,871,395</span>
+                                        <span class="chart-txt">公众号预估粉丝数</span>
+                                    </div>
+                                    <div>
+                                        <span class="chart-num">5532</span>
+                                        <span class="chart-txt">文章发布数</span>
+                                    </div>
+                                    <div>
+                                        <span class="chart-num">100,000+</span>
+                                        <span class="chart-txt">头条平均阅读</span>
+                                    </div>
+                                    <div>
+                                        <span class="chart-num">100,000+</span>
+                                        <span class="chart-txt">次条平均阅读</span>
+                                    </div>
+                                    <div>
+                                        <span class="chart-num">100,000+</span>
+                                        <span class="chart-txt">3-n条阅读</span>
+                                    </div>
+                                </div>
+                                <div class="official-charts" id="myChart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- content end -->
+        </div>
+        <!-- 页面主体结束 -->
+
+        <!-- 尾部开始 -->
+        <footer class='footer'>
+            <a class="icon-arrow-up7" id="top" href="#wrap"></a>
+            <aside class="footer-widget-area widget-area">
+                <div class="container nz-clearfix">
+                    <div class="nz-row">
+                        <div id="text-2" class="widget widget_text">
+                            <div class="textwidget">
+                                <img src="${base}/img/logo_white.svg" alt="footer-logo">
+                                <div class='gap nz-clearfix' style='height:20px'>&nbsp;</div>
+                                <ul class="footer-list-item">
+                                    <li style="width: 80%">
+                                        <span>Token Media是国内区块链相关自媒体的联合协会，Token Magadata是协会下面的自媒体大数据平台，通过监控行业内相关公众号的公开数据（比如文章阅读量、点赞量、文章标题）进行分析得到相关数据。</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="twitter-2" class="widget widget_text">
+                            <h6 class="widget_title">商务合作</h6>
+                            <div class='gap nz-clearfix' style='height:20px'>&nbsp;</div>
+                            <div class="textwidget">
+                                <ul class="footer-list-item">
+                                    <li>
+                                        <a href="#">
+                                            <span class="footer-label">联系邮箱：</span>
+                                            <span class="list-text">block_media@163.com</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="footer-label">联系电话：</span>
+                                            <span class="list-text">18227288292</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="footer-label">联系地址：</span>
+                                            <span class="list-text">上海市浦东新区陆家嘴金融中心133弄233号1302</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="our-code" class="widget widget_text">
+                            <h6 class="widget_title">关注我们</h6>
+                            <div class='gap nz-clearfix' style='height:20px'>&nbsp;</div>
+                            <div class="show-code">
+                                <img src="${base}/img/our-code.jpeg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <div class="footer-content">
+                <div class="container nz-clearfix">
+                    <nav class="footer-menu nz-clearfix">
+                        <ul id="footer-menu" class="menu">
+                            <li id="menu-item-141" class="menu-item-141"><a href="#">首页</a></li>
+                            <li id="menu-item-142" class="menu-item-142"><a href="#">排行榜</a></li>
+                            <li id="menu-item-143" class="menu-item-143"><a href="#">商业合作</a></li>
+                        </ul>
+                    </nav>
+                    <div class="footer-info">
+                        <span style="font-size:14px">&copy; 2018 Token Media</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- 尾部结束 -->
+    </div>
+    <!-- 页面容器结束 -->
+</div>
+<!-- 整个底板结束 -->
+<script type='text/javascript' src='${base}/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='${base}/js/jquery/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='${base}/js/modernizr.js'></script>
+
+<script type='text/javascript' src='${base}/js/jquery-blockui/jquery.blockUI.min.js'></script>
+
+<script type='text/javascript' src='${base}/js/frontend/woocommerce.min.js'></script>
+<script type='text/javascript' src='${base}/js/jquery-cookie/jquery.cookie.min.js'></script>
+
+<script type='text/javascript' src='${base}/js/jquery.shuffle.js'></script>
+<script type='text/javascript' src='${base}/js/plugins.js'></script>
+<script type='text/javascript' src='${base}/js/controller.js'></script>
+<script type='text/javascript' src='${base}/js/js_composer_front.js'></script>
+<script type='text/javascript' src='${base}/js/contact-form.js'></script>
+<script src="${base}/js/echarts.simple.min.js"></script>
+<script src="${base}/js/wonderland.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".highlights-menu .menu>li").on("click",function () {
+            $(this).find("ol").slideToggle();
+        })
+    })
+
+    var myChart=echarts.init(document.getElementById("myChart"),"wonderland");
+
+    option = {
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['最近阅读量变化']
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : false,
+                data : ['一月','二月','三月','四月','五月','六月','七月']
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                axisLabel : {
+                    formatter: '{value}'
+                }
+            }
+        ],
+        series : [
+            {
+                name:'最近阅读量变化',
+                type:'line',
+                data:[11, 11, 15, 13, 12, 13, 10],
+                markPoint : {
+                    data : [
+                        {type : 'max', name: '最大值'},
+                        {type : 'min', name: '最小值'}
+                    ]
+                }
+            }
+        ]
+    };
+
+    myChart.setOption(option)
+</script>
+</body>
+</html>
