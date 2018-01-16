@@ -35,7 +35,7 @@
                 <div class="container nz-clearfix">
                     <!--移动端头部logo-->
                     <div class="logo logo-mob">
-                        <a href="#">
+                        <a href="${base}/">
                             <img src="${base}/img/logo.svg" alt="Logo">
                         </a>
                     </div>
@@ -51,8 +51,8 @@
                 <!--移动端下拉菜单内容-->
                 <nav class="header-menu mob-menu nz-clearfix">
                     <ul id="mob-header-menu" class="menu">
-                        <li><a href="#">首页</a></li>
-                        <li><a href="#">排行榜</a></li>
+                        <li><a href="${base}/">首页</a></li>
+                        <li><a href="${base}/showDetails">排行榜</a></li>
                         <li><a href="#">商业合作</a></li>
                     </ul>
                     <ul id="change-menu" class="menu">
@@ -70,12 +70,12 @@
                     <div class="header-cont">
                         <!--宽屏logo-->
                         <div class="logo logo-desk">
-                            <a href="#">
+                            <a href="${base}/">
                                 <img src="${base}/img/logo.svg" alt="Logo">
                             </a>
                         </div>
                         <div class="logo logo-fixed">
-                            <a href="#">
+                            <a href="${base}/">
                                 <img src="${base}/img/logo.svg" alt="Logo">
                             </a>
                         </div>
@@ -107,8 +107,8 @@
                         <!--宽屏导航功能-->
                         <nav class="header-menu desk-menu nz-clearfix">
                             <ul class="menu">
-                                <li><a href="#">首页</a></li>
-                                <li><a href="#">排行榜</a></li>
+                                <li><a href="${base}/">首页</a></li>
+                                <li><a href="${base}/showDetails">排行榜</a></li>
                                 <li><a href="#">商业合作</a></li>
                             </ul>
                         </nav>
@@ -126,19 +126,19 @@
                             <div class="nz-row">
                                 <div class="official-detail">
                                     <div class="official-icon">
-                                        <img src="${base}/upload/person1.jpg" alt="user-icon">
+                                        <img src="${detail.logurl}" alt="user-icon">
                                     </div>
                                     <div class="official-right">
                                         <div class="official-row1">
                                             <h5>${detail.bizName!""}</h5>
                                             <div class="show-code">
-                                                <img src="${base}/upload/code_01.jpg" alt="code">
+                                                <img src="${detail.qrcode}" alt="code">
                                             </div>
                                             <ul class="official-tag">
-                                                <li>
-                                                    <span>${detail.bizName!""}</span>
+                                             <!--    <li>
+                                                    <span></span>
                                                 </li>
-<!--                                                 <li>
+                                                <li>
                                                     <span>标签1</span>
                                                 </li>
                                                 <li>
@@ -176,27 +176,27 @@
                             </div>
                             <div class="nz-row" id="chart-box" style="margin-top: 50px">
                                 <div class="chart-header">
-                                    <h5>近7天数据统计</h5>
+                                    <h5>近期数据统计</h5>
                                 </div>
                                 <div class="chart-item">
                                     <div>
-                                        <span class="chart-num">126,871,395</span>
-                                        <span class="chart-txt">公众号预估粉丝数</span>
+                                        <span class="chart-num">${detail.fans}</span>
+                                        <span class="chart-txt">公众号预估活跃粉丝数</span>
                                     </div>
-                                    <div>
+                                   <!--  <div>
                                         <span class="chart-num">5532</span>
                                         <span class="chart-txt">文章发布数</span>
-                                    </div>
+                                    </div> -->
                                     <div>
-                                        <span class="chart-num">100,000+</span>
+                                        <span class="chart-num">${detail.firstAvgRead}</span>
                                         <span class="chart-txt">头条平均阅读</span>
                                     </div>
                                     <div>
-                                        <span class="chart-num">100,000+</span>
+                                        <span class="chart-num">${detail.secondAvgRead}</span>
                                         <span class="chart-txt">次条平均阅读</span>
                                     </div>
                                     <div>
-                                        <span class="chart-num">100,000+</span>
+                                        <span class="chart-num">${detail.thirdMoreAvgRead}</span>
                                         <span class="chart-txt">3-n条阅读</span>
                                     </div>
                                 </div>
@@ -267,8 +267,8 @@
                 <div class="container nz-clearfix">
                     <nav class="footer-menu nz-clearfix">
                         <ul id="footer-menu" class="menu">
-                            <li id="menu-item-141" class="menu-item-141"><a href="#">首页</a></li>
-                            <li id="menu-item-142" class="menu-item-142"><a href="#">排行榜</a></li>
+                            <li id="menu-item-141" class="menu-item-141"><a href="${base}/">首页</a></li>
+                            <li id="menu-item-142" class="menu-item-142"><a href="${base}/showDetails">排行榜</a></li>
                             <li id="menu-item-143" class="menu-item-143"><a href="#">商业合作</a></li>
                         </ul>
                     </nav>
@@ -307,6 +307,13 @@
     })
 
     var myChart=echarts.init(document.getElementById("myChart"),"wonderland");
+    
+    var r = new Array();
+    for(var i = 0;i<7;i++){
+    	var n=500;
+    	var m=700;
+    	r.push(parseInt(Math.random()*(n-m+1)+m));
+    }
 
     option = {
         tooltip : {
@@ -318,6 +325,7 @@
         calculable : true,
         xAxis : [
             {
+            	show : false,
                 type : 'category',
                 boundaryGap : false,
                 data : ['一月','二月','三月','四月','五月','六月','七月']
@@ -335,7 +343,7 @@
             {
                 name:'最近阅读量变化',
                 type:'line',
-                data:[11, 11, 15, 13, 12, 13, 10],
+                data:r,
                 markPoint : {
                     data : [
                         {type : 'max', name: '最大值'},

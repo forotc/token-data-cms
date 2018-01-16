@@ -28,7 +28,8 @@
 	</select> -->
 	
 	<select id="getAccounts" resultType="com.weinxindata.ailu.client.dto.AccountDTO">
-		SELECT w.id,w.wechatid,d.biz_name,d.fans,d.logurl,first_avg_read weekReadMean,first_avg_read*7 weekReadCount,article_count weekPushCount,w.biz_name
+		SELECT w.id,w.wechatid,d.biz_name,d.fans,d.logurl,first_avg_read weekReadMean,
+		first_avg_read*7 weekReadCount,article_count weekPushCount,w.biz_name
 		FROM wechat w
 		LEFT JOIN article a ON w.wechatid=a.wechatid
 		LEFT JOIN diagnosis d ON w.wechatid=d.wechatid
@@ -38,7 +39,8 @@
 	</select>
 	
 	<select id="getDetail" resultType="com.weinxindata.ailu.client.dto.AccountDetailDTO">
-		SELECT w.id,w.wechatid,d.biz_name,d.logurl,d.iz_desc
+		SELECT w.id,w.wechatid,w.qrcode,d.biz_name,d.logurl,d.iz_desc,d.fans,d.first_avg_read,
+		d.second_avg_read,d.third_more_avg_read
 		FROM wechat w LEFT JOIN diagnosis d ON w.wechatid=d.wechatid
 		where w.id=#{id}
 	</select>
