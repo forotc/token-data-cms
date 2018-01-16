@@ -778,7 +778,7 @@
 
 /*排行详情页分页*/
 #pages{
-    width: 500px;
+    width: 200px;
     margin: 0 auto;
 }
 #pages li{
@@ -813,6 +813,10 @@
 
 .choose-page li:hover a{
     color: #313131;
+}
+
+.no {
+	a:hover{cursor:not-allowed;}
 }
 
 /*公众号详情页、图表*/

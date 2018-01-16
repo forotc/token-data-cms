@@ -14,8 +14,12 @@ public class AccountService {
 	@Autowired
 	AccountDao accountDao;
 
-	public List<AccountDTO> getAccounts() {
-		return accountDao.getAccounts();
+	public List<AccountDTO> getAccounts(int start, int length) {
+		return accountDao.getAccounts(start, length);
+	}
+
+	public int getCount() {
+		return accountDao.getCount();
 	}
 
 	public AccountDetailDTO getDetail(int id) {

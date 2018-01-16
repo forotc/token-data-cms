@@ -5,17 +5,16 @@
 
 	<groupId>com.weinxindata.ailu</groupId>
 	<artifactId>weixindata</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<packaging>jar</packaging>
 
 	<name>TokenMedia</name>
-	<description>Demo project for Spring Boot</description>
+	<description>weixin data</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.0.M7</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<version>1.5.9.RELEASE</version>
 	</parent>
 
 	<properties>
@@ -54,11 +53,6 @@
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>${druid.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>r05</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
