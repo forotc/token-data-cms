@@ -35,7 +35,11 @@
 		LEFT JOIN diagnosis d ON w.wechatid=d.wechatid
 		GROUP BY w.wechatid
 		ORDER BY d.fans desc,weekReadMean DESC,weekReadCount desc,weekPushCount desc
-		limit 0,10
+		limit #{start},#{length}
+	</select>
+	
+	<select id="getCount" resultType="int">
+		select count(0) FROM wechat 
 	</select>
 	
 	<select id="getDetail" resultType="com.weinxindata.ailu.client.dto.AccountDetailDTO">

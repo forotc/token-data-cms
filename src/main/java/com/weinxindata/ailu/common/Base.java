@@ -95,4 +95,14 @@ public class Base {
 		return ipAddress;
 	}
 
+	public int page(int count, int pageSize) {
+		int pageCount = 0;
+		if ((float) count / (float) pageSize <= 1)
+			pageCount = 1;
+		else if (count % pageSize == 0)
+			pageCount = count / pageSize;
+		else if (count % pageSize > 0)
+			pageCount = count / pageSize + 1;
+		return pageCount;
+	}
 }

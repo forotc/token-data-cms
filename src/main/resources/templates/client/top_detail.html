@@ -150,40 +150,11 @@
                                     <th>操作</th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                [#list accountList as account]
-                                <tr>
-                                    <td>
-                                        <span>${account_index+1}</span>
-                                    </td>
-                                    <td>
-                                        <img src="${account.logurl}">
-                                        <div class="top-detail">
-                                            <span class="top-list-name">${account.bizName!""}</span>
-                                            <span class="top-list-code">${account.wechatid}</span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span>${account.fans}</span>
-                                    </td>
-                                    <td>
-                                        <span>${account.weekReadMean}</span>
-                                    </td>
-                                    <td>
-                                        <span>${account.weekReadCount}</span>
-                                    </td>
-                                    <td>
-                                        <span>${account.weekPushCount}</span>
-                                    </td>
-                                    <td>
-                                        <button type="button" onclick="detail(#{account.id})">详情</button>
-                                    </td>
-                                </tr>
-                                [/#list]
+                                <tbody id="list">
                                 </tbody>
                             </table>
                         </div>
-                        <!-- <div style="padding-bottom: 100px">
+                        <div style="padding-bottom: 100px">
                             <div id="pages">
                                 <div class="ctrl-page">
                                     <a href="#">上一页</a>
@@ -209,7 +180,7 @@
                                     <a href="#">下一页</a>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                     </section>
                 </div>
                 <!-- post end -->
@@ -310,7 +281,72 @@
         $(".highlights-menu .menu>li").on("click",function () {
             $(this).find("ol").slideToggle();
         })
+        
+        page(1);
     })
+    
+    function page(i){
+		$.get("${base}/list/"+i,function(r){
+			if(r.code == 0 ){
+				showList(i,r.data);
+				showPage(r.currPage,r.pageCount);
+			}
+		},'json')
+    }
+    
+    function showList(page,data){
+    	$("#list").html("");
+    	$.each(data,function(i,v){
+    		var html = makeHtml(v.id,(page*10-10+1)+i,v.logurl,v.bizName,v.wechatId,v.fans,v.weekReadMean,v.weekReadCount,v.weekPushCount);
+    		$("#list").append(html);
+    	})
+    }
+    
+    function makeHtml(id,index,head,name,wechatId,fans,weekReadMean,weekReadCount,weekPushCount){
+    	var html = '<tr><td><span>'+index+'</span></td><td>'+
+    				'<img src="'+head+'"><div class="top-detail">'+
+    				'<span class="top-list-name">'+name+'</span>'+
+    				'<span class="top-list-code">'+wechatId+'</span></div></td>'+
+    				'<td><span>'+fans+'</span></td><td><span>'+weekReadMean+'</span>'+
+    				'</td><td><span>'+weekReadCount+'</span></td><td>'+
+    				'<span>'+weekPushCount+'</span></td>'+
+    				'<td><button type="button" onclick="detail('+id+')">详情</button></td></tr>';
+    	return html;
+    }
+    
+    function showPage(currPage, pageCount){
+    	var currPage = currPage;
+		var pageCount = pageCount;
+		var p="",n="",html ="";
+		
+		if(pageCount == 1){
+			p='<div class="ctrl-page"><a href="javascript:;">上一页</a></div>';
+		//	html='<ul class="choose-page"><li><a href="javascript:;">1</a></li></ul>';
+			n='<div class="ctrl-page"><a href="javascript:;">下一页</a></div>';
+		}else{
+			if(currPage == 1){
+				p='<div class="ctrl-page"><a href="javascript:;">上一页</a></div>';
+				n='<div class="ctrl-page"><a href="javascript:page('+ (currPage+1) +');">下一页</a></div>';
+			}else if(currPage == pageCount){
+				p='<div class="ctrl-page"><a href="javascript:page('+ (currPage-1) +');">上一页</a></div>';
+				n='<div class="ctrl-page"><a href="javascript:;">下一页</a></div>';
+			}else{
+				p='<div class="ctrl-page"><a href="javascript:page('+ (currPage-1) +');">上一页</a></div>';
+				n='<div class="ctrl-page"><a href="javascript:page('+ (currPage+1) +');">下一页</a></div>';
+			}
+
+			/* for (var i = 0; i < pageCount; i++) {
+				if(currPage == i+1)
+					html += '<li><a href="javascript:;">'+ (i+1) +'</a></li>';
+				else
+					html += '<li><a href="javascript:page('+ (i+1) +');">'+ (i+1) +'</a></li>';
+			} */
+			
+		//	html='<ul class="choose-page">'+ html +'</ul>';
+		}
+
+		$("#pages").html(p + n);
+    }
     
     function detail(id){
     	window.location.href="/detail/"+id;

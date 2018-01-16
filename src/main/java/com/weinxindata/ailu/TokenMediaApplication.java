@@ -64,7 +64,7 @@ public class TokenMediaApplication {
 
 		mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
 		mapperScannerConfigurer.setBasePackage("com.weinxindata.ailu.**.dao");
-
+	
 		return mapperScannerConfigurer;
 	}
 
@@ -75,7 +75,8 @@ public class TokenMediaApplication {
 		executor.setCorePoolSize(2);
 		executor.setMaxPoolSize(100);
 		executor.setQueueCapacity(10);
-	//	executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy()); // 对拒绝task的处理策略
+		// executor.setRejectedExecutionHandler(new
+		// ThreadPoolExecutor.CallerRunsPolicy()); // 对拒绝task的处理策略
 		executor.setKeepAliveSeconds(2);
 		executor.initialize();
 		return executor;
