@@ -351,7 +351,13 @@
     font-size: 20px;
     color: #313131;
     letter-spacing: 0;
-    padding: 5px 0;
+    padding: 5px;
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    word-break: break-all;
+    text-overflow: ellipsis;
+
 }
 
 #top_lists tbody tr td:nth-child(2) .top-list-code{
@@ -968,4 +974,12 @@
     width: 100%;
     float: left;
     height: 400px;
+}
+
+.top-three .top-user-name h5{
+    padding: 0 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    word-break: break-all;
+    text-overflow: ellipsis;
 }
