@@ -16,12 +16,26 @@ import com.ailu.tokenmedia.common.R;
 import com.ailu.tokenmedia.manage.account.dto.AccountListDTO;
 import com.ailu.tokenmedia.manage.account.service.ManageAccountService;
 
+/**
+ * 公众号管理
+ * 
+ * @author Michael
+ *
+ */
 @Controller
 @RequestMapping("manage/account")
 public class ManageAccountController {
 	@Autowired
 	ManageAccountService accountService;
 
+	/**
+	 * 公众号列表
+	 * 
+	 * @param keyword
+	 * @param iDisplayStart
+	 * @param iDisplayLength
+	 * @return
+	 */
 	@RequestMapping("getList")
 	@ResponseBody
 	public Map<String, Object> getList(String keyword, int iDisplayStart, int iDisplayLength) {
@@ -34,6 +48,13 @@ public class ManageAccountController {
 		return map;
 	}
 
+	/**
+	 * 单个公众号的添加和修改
+	 * 
+	 * @param account
+	 * @param type
+	 * @return
+	 */
 	@RequestMapping("save")
 	@ResponseBody
 	public R save(String account, int type) {
@@ -41,6 +62,13 @@ public class ManageAccountController {
 		return R.ok();
 	}
 
+	/**
+	 * 公众号批量导入
+	 * 
+	 * @param file
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("import")
 	@ResponseBody
 	public R importFile(@RequestParam("file") MultipartFile file) throws Exception {

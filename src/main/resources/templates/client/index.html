@@ -17,6 +17,7 @@
     <title>TOKEN MEDIA</title>
     <!-- META TAGS -->
     <meta charset="UTF-8"/>
+    <meta name="referrer" content="never">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- LINK TAGS -->
     <link rel='stylesheet' href='css/js_composer.css' type='text/css' media='all'/>
@@ -163,7 +164,7 @@
                                             </div>
                                             <!--头像、详情按钮-->
                                             <div class="top-user-icon">
-                                                <img src="${account.logurl}">
+                                                <img src="${account.head}">
                                                 <div class="btn-block">
                                                     <button type="button" onclick="detail(${account.id})">详情</button>
                                                 </div>
@@ -175,7 +176,7 @@
                                             <!--公众号-->
                                             <div class="top-user-code">
                                                 <span>公众号：</span>
-                                                <span>${account.wechatid}</span>
+                                                <span>${account.wechatId}</span>
                                             </div>
                                             <!--详情列表-->
                                             <div class="top-user-list">
@@ -361,9 +362,6 @@
                             </div>
                         </div>
                     </section>
-                   
-                    
-                    
                     
                 </div>
                 <!-- post end -->
