@@ -41,6 +41,10 @@ public class ManageAccountService {
 		obtainService.saveWechatInfo(list);
 	}
 
+	public List<String> getNull() {
+		return accountDao.getNull();
+	}
+
 	public R readExcle(InputStream input, String suffix) throws IOException {
 		Workbook wb = null;
 		if ("xls".equals(suffix)) {

@@ -14,4 +14,6 @@ public interface ManageAccountDao {
 	int getCount(@Param("keyword") String keyword);
 
 	void save(@Param("account") String account, @Param("type") int type);
+
+	List<String> getNull();
 }

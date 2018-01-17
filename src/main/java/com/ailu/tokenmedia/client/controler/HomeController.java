@@ -17,7 +17,7 @@ public class HomeController {
 
 	@RequestMapping("")
 	public String home(Model model) {
-		List<AccountDTO> list = accountService.getAccounts(0, 10);
+		List<AccountDTO> list = accountService.getAccounts(0, 30);
 		model.addAttribute("accounts", list);
 		return "client/index";
 	}

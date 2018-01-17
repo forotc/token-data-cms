@@ -6,7 +6,8 @@
 		SELECT w.id,w.wechat_id,w.biz_name,wi.fans,w.head,wi.first_avg_read weekReadMean,
 		wi.first_avg_read*7 weekReadCount,wi.article_count weekPushCount
 		FROM wechat w
-		LEFT JOIN wechat_info wi ON w.wechat_id=wi.wechat_id and w.biz_name is not null
+		LEFT JOIN wechat_info wi ON w.wechat_id=wi.wechat_id
+		where w.biz_name is not null
 		GROUP BY w.wechat_id
 		ORDER BY wi.fans desc,weekReadMean DESC,weekReadCount desc,weekPushCount desc
 		limit #{start},#{length}
