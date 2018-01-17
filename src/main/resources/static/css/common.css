@@ -45,80 +45,17 @@
 }
 
 /*第1张*/
-#ninzio-layer-1386-1 .layer-wrap h2 {
-    text-align: center;
-}
-
 #ninzio-layer-1386-1 .layer-wrap h2 span {
     font-size: 52px;
     line-height: 62px;
     color: #FFFFFF;
 }
 
-#ninzio-layer-1386-2 .layer-wrap p {
-    text-align: center;
-}
-
-#ninzio-layer-1386-2 .layer-wrap p span {
-    font-size: 56px;
-    line-height: 66px;
-    color: #00a388;
-    font-weight: 900;
-}
-
-#ninzio-layer-1386-3 .layer-wrap .nz-colorbox {
-    width: 570px;
-    margin: 0 auto;
-}
-
-#ninzio-layer-1386-3 .layer-wrap .nz-colorbox p {
-    text-align: center;
-}
-
-#ninzio-layer-1386-3 .layer-wrap .nz-colorbox p span {
+#ninzio-layer-1386-3 .layer-wrap p span {
     font-size: 18px;
     line-height: 28px;
     color: #FFFFFF;
 }
-
-#ninzio-layer-1386-4 .layer-wrap {
-    width: 50%;
-    text-align: right;
-    margin-right: 20px;
-}
-
-#ninzio-layer-1386-5 .layer-wrap {
-    width: 50%;
-    text-align: left;
-    margin-left: 20px;
-
-}
-
-/*第2张*/
-#ninzio-layer-1380-1 .layer-wrap h2 span {
-    font-size: 52px;
-    line-height: 62px;
-    color: #70878f;
-}
-
-#ninzio-layer-1380-2 .layer-wrap p span {
-    font-size: 56px;
-    line-height: 66px;
-    color: #00a388;
-    font-weight: 900;
-}
-
-#ninzio-layer-1380-3 .layer-wrap .nz-colorbox {
-    width: 450px;
-}
-
-#ninzio-layer-1380-3 .layer-wrap .nz-colorbox p span {
-    font-size: 18px;
-    line-height: 28px;
-    color: #333333;
-    font-weight: 300;
-}
-
 
 /*公众号影响力排行标题*/
 .page-title{
@@ -393,6 +330,7 @@
     border-radius: 4px;
     padding: 5px 15px;
 }
+
 
 .six-box{
     float: left;
@@ -778,7 +716,7 @@
 
 /*排行详情页分页*/
 #pages{
-    width: 200px;
+    width: 500px;
     margin: 0 auto;
 }
 #pages li{
@@ -815,10 +753,6 @@
     color: #313131;
 }
 
-.no {
-	a:hover{cursor:not-allowed;}
-}
-
 /*公众号详情页、图表*/
 .official-detail{
     width: 100%;
@@ -831,11 +765,11 @@
 
 .official-detail .official-icon{
     width: 10%;
-    height: 200px;
     float: left;
 }
 
 .official-detail .official-right{
+    width: 600px;
     float: left;
 }
 

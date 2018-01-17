@@ -4021,28 +4021,6 @@ table {
     box-shadow: 0 1px 1px rgba(0, 0, 0, .4)
 }
 
-@media (-webkit-min-device-pixel-ratio: 1.3),(-o-min-device-pixel-ratio: 2.6/2),(min--moz-device-pixel-ratio: 1.3),(min-device-pixel-ratio: 1.3),(min-resolution: 1.3dppx) {
-    .nivo-lightbox-theme-default .nivo-lightbox-content.nivo-lightbox-loading {
-        background-image: url(../images/loading%402x.gif);
-        background-size: 32px 32px
-    }
-
-    .nivo-lightbox-theme-default .nivo-lightbox-prev {
-        background-image: url(../images/prev%402x.png);
-        background-size: 48px 48px
-    }
-
-    .nivo-lightbox-theme-default .nivo-lightbox-next {
-        background-image: url(../images/next%402x.png);
-        background-size: 48px 48px
-    }
-
-    .nivo-lightbox-theme-default .nivo-lightbox-close {
-        background-image: url(../images/close%402x.png);
-        background-size: 16px 16px
-    }
-}
-
 /*  CUSTOM FONT-FAMILY
 /*============*/
 
@@ -13627,41 +13605,18 @@ p.woocommerce-error,
 
 /*	RESPONSIVE
 /*=============*/
-
-/*	MIN MOB PORTRAIT
-	/*-------------*/
-
-@media only screen and (min-width: 320px) {
-
-    .container,
-    .solo-true .nz-related-products {
-        max-width: 290px;
-        width: 290px;
-    }
-
-    .widget_calendar caption,
-    .widget_calendar th,
-    .widget_calendar td,
-    .widget_calendar td#prev,
-    .widget_calendar td#next,
-    .widget_calendar td#prev span,
-    .widget_calendar td#next span {
-        height: 41px;
-        width: 41px;
-        line-height: 41px;
-    }
-
-    .nz-table th,
-    .nz-table td {
-        padding: 5px;
-    }
-
-}
-
 /*	MAX MOB PORTRAIT
 	/*-------------*/
 
 @media only screen and (max-width: 320px) {
+    .container{
+        max-width: 300px;
+        width: 300px;
+    }
+
+    .top-three .col4{
+        padding: 0;
+    }
 
     button,
     input[type="reset"],
@@ -13767,47 +13722,6 @@ p.woocommerce-error,
         font-size: 20px;
         line-height: 20px;
     }
-
-    .woocommerce .shop_table.cart td,
-    .woocommerce .shop_table.cart th {
-        padding: 5px;
-        background-color: #ffffff;
-    }
-
-    .woocommerce .shop_table.cart td.actions {
-        padding-top: 7px;
-    }
-
-    .woocommerce .shop_table.cart .product-thumbnail {
-        display: none;
-    }
-
-    .woocommerce .shop_table.cart .quantity input[type="number"],
-    .woocommerce .shop_table.cart .quantity input[type="button"] {
-        width: 70%;
-        display: block;
-        float: none;
-        margin: 0;
-    }
-
-    .woocommerce .shop_table.cart .quantity input[type="button"] {
-        height: 30px;
-    }
-
-    .woocommerce .shop_table.cart .quantity input[type="button"].minus {
-        border-radius: 3px 3px 0 0;
-        -webkit-transform: translateY(1px);
-        -ms-transform: translateY(1px);
-        transform: translateY(1px);
-    }
-
-    .woocommerce .shop_table.cart .quantity input[type="button"].plus {
-        border-radius: 0 0 3px 3px;
-        -webkit-transform: translateY(-1px);
-        -ms-transform: translateY(-1px);
-        transform: translateY(-1px);
-    }
-
 }
 
 /*	MIN MOB LANDSCAPE
@@ -13815,10 +13729,15 @@ p.woocommerce-error,
 
 @media only screen and (min-width: 480px) {
 
-    .container,
-    .solo-true .nz-related-products {
+    .container{
         max-width: 440px;
         width: 440px;
+    }
+
+    #top_list{
+        max-width: 440px;
+        width: 440px;
+        overflow-x: hidden;
     }
 
     .widget_calendar caption,
@@ -13927,7 +13846,6 @@ p.woocommerce-error,
         -ms-transform: translateY(-10px);
         transform: translateY(-10px);
     }
-
 }
 
 /*	MIN TABLET PORTRAIT
@@ -13935,12 +13853,10 @@ p.woocommerce-error,
 
 @media only screen and (min-width: 768px) {
 
-    .container,
-    .solo-true .nz-related-products {
+    .container{
         max-width: 720px;
         width: 720px;
     }
-
     .nz-row {
         margin-left: -15px;
         margin-right: -15px;
@@ -14813,10 +14729,9 @@ p.woocommerce-error,
 
 @media only screen and (min-width: 1024px) {
 
-    .container,
-    .solo-true .nz-related-products {
-        max-width: 960px;
-        width: 960px;
+    .container{
+        max-width: 1000px;
+        width: 1000px;
     }
 
     .main-content,
@@ -16536,8 +16451,8 @@ p.woocommerce-error,
 			/*-------------*/
     .container,
     .solo-true .nz-related-products {
-        max-width: 1170px;
-        width: 1170px;
+        max-width: 1200px;
+        width: 1200px;
     }
 
     .widget_calendar caption,
@@ -19147,7 +19062,11 @@ h6 {
     .active #ninzio-layer-1386-1,
     #ninzio-layer-1386-1.none,
     #ninzio-layer-1386-1.scalein,
-    #ninzio-layer-1386-1.scaleout {
+    #ninzio-layer-1386-1.scaleout,
+    #ninzio-layer-1386-1.ghostleft,
+    #ninzio-layer-1386-1.ghostright,
+    #ninzio-layer-1386-1.ghosttop,
+    #ninzio-layer-1386-1.ghostbottom {
         top: 71px !important;
         width: 100%;!important;
         left: 50% !important;
@@ -19287,8 +19206,12 @@ h6 {
     .active #ninzio-layer-1386-1,
     #ninzio-layer-1386-1.none,
     #ninzio-layer-1386-1.scalein,
-    #ninzio-layer-1386-1.scaleout {
-        top: 94px !important;
+    #ninzio-layer-1386-1.scaleout,
+    #ninzio-layer-1386-1.ghostleft,
+    #ninzio-layer-1386-1.ghostright,
+    #ninzio-layer-1386-1.ghosttop,
+    #ninzio-layer-1386-1.ghostbottom {
+        top: 90px !important;
         width: 100%;!important;
         left: 50% !important;
         margin-left: -50%;!important;
@@ -22095,4 +22018,3 @@ h6 {
 }
 
 
-	

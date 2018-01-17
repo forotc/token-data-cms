@@ -20,5 +20,9 @@
 	<insert id="save">
 		insert IGNORE into wechat (wechat_id,type) values (#{account},#{type})
 	</insert>
+	
+	<select id="getNull" resultType="string">
+		select wechat_id from wechat where biz_name is null
+	</select>
 
 </mapper>

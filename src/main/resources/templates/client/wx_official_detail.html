@@ -17,19 +17,77 @@
     <title>TOKEN MEDIA</title>
     <!-- META TAGS -->
     <meta charset="UTF-8"/>
+    <meta name="referrer" content="never">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- LINK TAGS -->
     <link rel='stylesheet' href='${base}/css/js_composer.css' type='text/css' media='all'/>
     <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
     <link rel="stylesheet" href="${base}/css/style.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="${base}/css/common.css" type="text/css" media="screen">
+    <style>
+        #goodcover {
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 133%;
+            background-color: black;
+            z-index: 2000;
+            -moz-opacity: 0.8;
+            opacity: 0.50;
+            filter: alpha(opacity=80);
+        }
+
+        #code2 {
+            padding: 30px;
+            background-color: #fff;
+            padding: 10px;
+            position: absolute;
+            display: none;
+            left: 45%;
+            z-index: 2002;
+        }
+
+        #closebt {
+            float: right;
+        }
+
+        #closebt img {
+            width: 20px;
+        }
+
+        .goodtxt {
+            text-align: center;
+        }
+
+        .goodtxt p {
+            height: 30px;
+            line-height: 30px;
+            font-size: 16px;
+            color: #000;
+            font-weight: 600;
+        }
+
+        .code-img {
+            width: 250px;
+            margin: 30px auto 0 auto;
+            padding: 10px;
+        }
+
+        .code-img img {
+            width: 240px;
+        }
+    </style>
 </head>
 
-<body class="page page-id-156 page-template-default wpb-js-composer js-comp-ver-4.4.4 vc_responsive" style="background-color: #F7F7F7">
+<body class="page page-id-156 page-template-default wpb-js-composer js-comp-ver-4.4.4 vc_responsive"
+      style="background-color: #F7F7F7">
 <!-- 整体底板 -->
 <div id="gen-wrap">
+    <div id="goodcover"></div>
     <div id="wrap" class="nz-wide">
-    	<!-- 头部开始 -->
+        <!-- 头部开始 -->
         [#include "common/header.html" /]
         <!-- 头部结束 -->
         <!--主要展示部分-->
@@ -39,15 +97,14 @@
                 <section class="page-content nz-clearfix" style="margin: 40px 0px">
                     <div class="nz-section horizontal animate-false full-width-true" style="padding: 30px">
                         <div class="container">
-                            <div class="nz-row">
-                                <div class="official-detail">
-                                    <div class="official-icon">
+                            <div class="official-detail">
+                                <div class="official-icon">
                                         <img src="${detail.head}" alt="user-icon">
                                     </div>
-                                    <div class="official-right">
-                                        <div class="official-row1">
+                                <div class="official-right">
+                                    <div class="official-row1">
                                             <h5>${detail.bizName!""}</h5>
-                                            <div class="show-code">
+                                            <div class="show-code" id="show_code">
                                                 <img src="${detail.qrCode}" alt="code">
                                             </div>
                                             <ul class="official-tag">
@@ -62,37 +119,36 @@
                                                 </li> -->
                                             </ul>
                                         </div>
-                                        <ul class="official-msg">
-                                            <li>
-                                                <span class="o-content">${detail.wechatId}</span>
-                                            </li>
-                                           <!--  <li>
-                                                <span class="o-label">运营主体：</span>
-                                                <span class="o-content">个人</span>
-                                            </li> -->
-                                            <li>
-                                                <span class="o-label">功能介绍：</span>
-                                                <span class="o-content">${detail.bizDesc!""}</span>
-                                            </li>
-                                            <!-- <li>
-                                                <span class="o-label">注册地区：</span>
-                                                <span class="o-content">中国</span>
-                                            </li>
-                                            <li>
-                                                <span class="o-label">注册时间：</span>
-                                                <span class="o-content">3年以上</span>
-                                            </li>
-                                            <li>
-                                                <span class="o-label">所属行业：</span>
-                                                <span class="o-content">资讯</span>
-                                            </li> -->
-                                        </ul>
-                                    </div>
+                                    <ul class="official-msg">
+                                        <!--<li>-->
+                                        <!--<span class="o-content">BiBiBi-00880808</span>-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                        <!--<span class="o-label">运营主体：</span>-->
+                                        <!--<span class="o-content">个人</span>-->
+                                        <!--</li>-->
+                                        <li>
+                                            <span class="o-label">功能介绍：</span>
+                                            <span class="o-content">${detail.bizDesc!""}</span>
+                                        </li>
+                                        <!--<li>-->
+                                        <!--<span class="o-label">注册地区：</span>-->
+                                        <!--<span class="o-content">中国</span>-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                        <!--<span class="o-label">注册时间：</span>-->
+                                        <!--<span class="o-content">3年以上</span>-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                        <!--<span class="o-label">所属行业：</span>-->
+                                        <!--<span class="o-content">资讯</span>-->
+                                        <!--</li>-->
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="nz-row" id="chart-box" style="margin-top: 50px">
+                            <div id="chart-box" style="margin-top: 50px">
                                 <div class="chart-header">
-                                    <h5>近期数据统计</h5>
+                                    <h5>近7天数据统计</h5>
                                 </div>
                                 <div class="chart-item">
                                     <div>
@@ -131,6 +187,19 @@
         <!-- 尾部结束 -->
     </div>
     <!-- 页面容器结束 -->
+    <!--二维码-->
+    <div id="code2">
+        <div class="close1">
+            <a href="javascript:void(0)" id="closebt">
+                <img src="${base}/img/close.gif">
+            </a>
+        </div>
+        <div class="goodtxt">
+            <p>微信扫一扫，进入公众号</p>
+        </div>
+        <div class="code-img"><img id="ewmsrc" src="${detail.qrCode}"/></div>
+    </div>
+
 </div>
 <!-- 整个底板结束 -->
 <script type='text/javascript' src='${base}/js/jquery/jquery.js'></script>
@@ -151,9 +220,67 @@
 <script src="${base}/js/wonderland.js"></script>
 <script>
     $(document).ready(function () {
-        $(".highlights-menu .menu>li").on("click",function () {
+        $(".highlights-menu .menu>li").on("click", function () {
             $(this).find("ol").slideToggle();
         })
+
+        //弹出二维码
+        $("#show_code").on("click", function () {
+            $("#code2").center();
+            $("#goodcover").show(0);
+            $("#code2").show(0);
+        })
+
+        $("#closebt").on("click", function () {
+            $("#code2").hide();
+            $("#goodcover").hide();
+        })
+
+        $.fn.center = function (loaded) {
+            var obj = this;
+            body_width = parseInt($(window).width());
+            body_height = parseInt($(window).height());
+            block_width = parseInt(obj.width());
+            block_height = parseInt(obj.height());
+
+            left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+            if (body_width < block_width) {
+                left_position = 0 + $(window).scrollLeft();
+            }
+            ;
+
+            top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+            if (body_height < block_height) {
+                top_position = 0 + $(window).scrollTop();
+            }
+            ;
+
+            if (!loaded) {
+
+                obj.css({
+                    'position': 'absolute'
+                });
+                obj.css({
+                    'top': ($(window).height() - $('#code2').height()) * 0.5,
+                    'left': left_position
+                });
+                $(window).bind('resize', function () {
+                    obj.center(!loaded);
+                });
+                $(window).bind('scroll', function () {
+                    obj.center(!loaded);
+                });
+
+            } else {
+                obj.stop();
+                obj.css({
+                    'position': 'absolute'
+                });
+                obj.animate({
+                    'top': top_position
+                }, 200, 'linear');
+            }
+        }
     })
 
     var r = new Array();
