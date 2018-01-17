@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ailu.tokenmedia.manage.wechatInfo.dao.WechatInfoDao">
+
+    <insert id="save">
+        insert into wechat_info
+        (wechat_id,fans,first_avg_read,second_avg_read,third_more_avg_read,
+        article_count,create_time)
+        values
+         (#{wechatId},#{fans},#{firstAvgRead},#{secondAvgRead},
+         #{thirdMoreAvgRead},#{articleCount},#{createTime})
+    </insert>
+
+</mapper>

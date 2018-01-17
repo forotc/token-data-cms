@@ -1,14 +1,14 @@
 package com.ailu.tokenmedia.manage.Obtain.service;
 
+import com.ailu.tokenmedia.manage.wechat.service.WechatService;
+import com.ailu.tokenmedia.manage.wechatInfo.service.WechatInfoService;
 import com.ailu.tokenmedia.utils.HttpclientUtils;
 import com.ailu.tokenmedia.utils.ObtainUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 
@@ -27,8 +27,30 @@ public class ObtainService {
     @Autowired
     Executor taskExecutor;
 
-    ObjectMapper objectMapper;
+    @Autowired
+    WechatService wechatService;
 
+    @Autowired
+    WechatInfoService wechatInfoService;
+
+    private ObjectMapper objectMapper;
+
+    /**
+     * 通过微信公众号id列表  更新Wechat信息 和 添加WechatInfo
+     *
+     * @param wechatidList 微信公众号id列表
+     */
+    public void saveWechatInfo(List<String> wechatidList) {
+        for (String wechatid : wechatidList) {
+            ascynWechatId(wechatid);
+        }
+    }
+
+    /**
+     * 通过微信公共号id获取访问诊断结果接口所需要的key，并直接获取诊断结果
+     *
+     * @param wechatid 微信公众号id
+     */
     public void getWechatInfoKey(String wechatid) {
 
         //添加传送的内容参数
@@ -41,12 +63,12 @@ public class ObtainService {
         try {
             //获得访问诊断接口所需key
             objectMapper = new ObjectMapper();
-            Map<String, Object> jsonStrng = objectMapper.readValue(HttpclientUtils.rawpost(obtainUtil.getDiagnosisAdd(), headers, body), Map.class);
-            if (jsonStrng != null) {
+            Map<String, Object> json = objectMapper.readValue(HttpclientUtils.rawpost(obtainUtil.getDiagnosisAdd(), headers, body), Map.class);
+            if (json != null) {
                 //如果返回1，就代表成功，开始访问结果接口
-                if (jsonStrng.get("ResultCode").toString().equals("1")) {
+                if (json.get("ResultCode").toString().equals("1")) {
                     //通过key获取结果
-                    getWechatInfoResult(jsonStrng.get("RecordKey").toString(),wechatid);
+                    getWechatInfoResult(json.get("RecordKey").toString(), wechatid);
                 }
             }
         } catch (Exception e) {
@@ -70,14 +92,14 @@ public class ObtainService {
         objectMapper = new ObjectMapper();
         //访问接口，获得数据
         try {
-            Map<String, Object> jsonStrng = objectMapper.readValue(HttpclientUtils.rawpost(obtainUtil.getDiagnosisResult(), headers, body), Map.class);
-            if (jsonStrng != null) {
+            Map<String, Object> json = objectMapper.readValue(HttpclientUtils.rawpost(obtainUtil.getDiagnosisResult(), headers, body), Map.class);
+            if (json != null) {
                 //如果返回1，就代表成功，开始存储数据
-                if (jsonStrng.get("ResultCode").toString().equals("1")) {
+                if (json.get("ResultCode").toString().equals("1")) {
                     //更新微信表内容
-
+                    wechatService.updataByWechatid(json);
                     //保存WechatInfo内容
-
+                    wechatInfoService.save(json);
                 }
             }
         } catch (Exception e) {
