@@ -14,14 +14,14 @@ import java.util.Map;
 @Service
 public class WechatService {
 
-    @Autowired
-    WechatDao wechatDao;
+	@Autowired
+	WechatDao wechatDao;
 
-    public void updataByWechatid(Map<String, Object> json) {
+	public void updataByWechatid(Map<String, Object> json) {
 
-        wechatDao.updataByWechatid(json.get("Wechatid").toString(), json.get("BizName").toString(),
-                json.get("LogoUrl").toString().replace("-BizLogoCut",""), json.get("BizDes").toString());
-    }
-
+		wechatDao.updataByWechatid(json.get("Wechatid").toString(), json.get("BizName").toString(),
+				json.get("LogoUrl").toString().replace("-BizLogoCut", ""), json.get("BizDes").toString(),
+				"http://open.weixin.qq.com/qr/code?username=" + json.get("Wechatid").toString());
+	}
 
 }

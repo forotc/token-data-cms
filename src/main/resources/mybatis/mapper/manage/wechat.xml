@@ -6,7 +6,8 @@
         UPDATE wechat
         SET biz_name = #{bizName},
         head = #{head},
-        biz_desc = #{bizDes}
+        biz_desc = #{bizDes},
+        qr_code = #{qrCode}
         WHERE wechat_id = #{wechatid}
     </update>
 

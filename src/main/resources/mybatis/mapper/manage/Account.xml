@@ -3,7 +3,7 @@
 <mapper namespace="com.ailu.tokenmedia.manage.account.dao.ManageAccountDao">
 
 	<select id="getList" resultType="com.ailu.tokenmedia.manage.account.dto.AccountListDTO">
-		select id,wechatid,biz_name,type from wechat
+		select id,wechat_id,biz_name,type from wechat
 		<if test="keyword != ''">
 			where biz_name like CONCAT('%',#{keyword},'%') 
 		</if>
@@ -18,7 +18,7 @@
 	</select>
 
 	<insert id="save">
-		insert into wechat (wechatid,type) values (#{account},#{type})
+		insert IGNORE into wechat (wechat_id,type) values (#{account},#{type})
 	</insert>
 
 </mapper>

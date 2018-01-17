@@ -12,6 +12,7 @@ public class AccountDetailDTO {
 	private int firstAvgRead;
 	private int secondAvgRead;
 	private int thirdMoreAvgRead;
+	private int weekPushCount;
 
 	public int getId() {
 		return id;
@@ -91,5 +92,13 @@ public class AccountDetailDTO {
 
 	public void setBizDesc(String bizDesc) {
 		this.bizDesc = bizDesc;
+	}
+
+	public int getWeekPushCount() {
+		return weekPushCount;
+	}
+
+	public void setWeekPushCount(int weekPushCount) {
+		this.weekPushCount = weekPushCount;
 	}
 }

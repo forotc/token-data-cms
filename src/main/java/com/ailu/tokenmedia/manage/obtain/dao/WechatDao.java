@@ -9,8 +9,7 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface WechatDao {
 
-    void updataByWechatid(@Param("wechatid") String wechatid, @Param("bizName") String bizName,
-                          @Param("head") String head,@Param("bizDes") String bizDesc
-    );
+	void updataByWechatid(@Param("wechatid") String wechatid, @Param("bizName") String bizName,
+			@Param("head") String head, @Param("bizDes") String bizDesc, @Param("qrCode") String qrCode);
 
 }

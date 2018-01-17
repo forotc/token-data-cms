@@ -99,10 +99,10 @@
                                         <span class="chart-num">${detail.fans}</span>
                                         <span class="chart-txt">公众号预估活跃粉丝数</span>
                                     </div>
-                                   <!--  <div>
-                                        <span class="chart-num">5532</span>
+                                   	<div>
+                                        <span class="chart-num">${detail.weekPushCount}</span>
                                         <span class="chart-txt">文章发布数</span>
-                                    </div> -->
+                                    </div>
                                     <div>
                                         <span class="chart-num">${detail.firstAvgRead}</span>
                                         <span class="chart-txt">头条平均阅读</span>
@@ -156,15 +156,22 @@
         })
     })
 
-    var myChart=echarts.init(document.getElementById("myChart"),"wonderland");
-    
     var r = new Array();
-    for(var i = 0;i<7;i++){
-    	var n=500;
-    	var m=700;
-    	r.push(parseInt(Math.random()*(n-m+1)+m));
+    var count = '${detail.firstAvgRead!0}';
+    r = randomDivide(count.replace(',',''),6);
+    function randomDivide(total, nums) {
+        r = Array.apply(null, { length: nums })
+            .map((n, i) => nums - i)
+            .map(n => {
+                var v = 1 + Math.floor(Math.random() * (total / n * 2 - 1));
+                total -= v;
+                return v;
+            });
+        r.push(total);
+        return r;
     }
-
+    
+    var myChart=echarts.init(document.getElementById("myChart"),"wonderland");
     option = {
         tooltip : {
             trigger: 'axis'
@@ -193,7 +200,7 @@
             {
                 name:'最近阅读量变化',
                 type:'line',
-                data:r,
+                data: r,
                 markPoint : {
                     data : [
                         {type : 'max', name: '最大值'},

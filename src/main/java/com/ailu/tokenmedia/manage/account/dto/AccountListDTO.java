@@ -2,7 +2,7 @@ package com.ailu.tokenmedia.manage.account.dto;
 
 public class AccountListDTO {
 	private int id;
-	private String wechatid;
+	private String wechatId;
 	private String bizName;
 	private int type;
 
@@ -12,14 +12,6 @@ public class AccountListDTO {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getWechatid() {
-		return wechatid;
-	}
-
-	public void setWechatid(String wechatid) {
-		this.wechatid = wechatid;
 	}
 
 	public String getBizName() {
@@ -36,5 +28,13 @@ public class AccountListDTO {
 
 	public void setType(int type) {
 		this.type = type;
+	}
+
+	public String getWechatId() {
+		return wechatId;
+	}
+
+	public void setWechatId(String wechatId) {
+		this.wechatId = wechatId;
 	}
 }
