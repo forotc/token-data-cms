@@ -65,7 +65,7 @@ public class ObtainService {
                 //如果返回1，就代表成功，开始访问结果接口
                 if (json.get("ResultCode").toString().equals("1")) {
                     //通过key获取结果
-                    getWechatInfoResult(json.get("RecordKey").toString(), wechatid);
+                    getWechatInfoResult(json.get("RecordKey").toString());
                 }
             }
         } catch (Exception e) {
@@ -77,9 +77,8 @@ public class ObtainService {
      * 获取诊断结果
      *
      * @param recordKey 获取诊断结果所需key
-     * @param wechatid  微信公众号id
      */
-    public void getWechatInfoResult(String recordKey, String wechatid) {
+    public void getWechatInfoResult(String recordKey) {
         //添加传送的内容参数
         String body = obtainUtil.getDiagnosisResultParameter().replace("{0}", recordKey);
         //获得每次的验证码
