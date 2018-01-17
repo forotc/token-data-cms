@@ -3,10 +3,10 @@ package com.ailu.tokenmedia.client.dto;
 public class AccountDetailDTO {
 	private int id;
 	private String bizName;
-	private String wechatid;
-	private String logurl;
-	private String qrcode;
-	private String izDesc;
+	private String wechatId;
+	private String head;
+	private String qrCode;
+	private String bizDesc;
 
 	private int fans;
 	private int firstAvgRead;
@@ -27,38 +27,6 @@ public class AccountDetailDTO {
 
 	public void setBizName(String bizName) {
 		this.bizName = bizName;
-	}
-
-	public String getWechatid() {
-		return wechatid;
-	}
-
-	public void setWechatid(String wechatid) {
-		this.wechatid = wechatid;
-	}
-
-	public String getLogurl() {
-		return logurl;
-	}
-
-	public void setLogurl(String logurl) {
-		this.logurl = logurl;
-	}
-
-	public String getIzDesc() {
-		return izDesc;
-	}
-
-	public void setIzDesc(String izDesc) {
-		this.izDesc = izDesc;
-	}
-
-	public String getQrcode() {
-		return qrcode;
-	}
-
-	public void setQrcode(String qrcode) {
-		this.qrcode = qrcode;
 	}
 
 	public int getFans() {
@@ -91,5 +59,37 @@ public class AccountDetailDTO {
 
 	public void setThirdMoreAvgRead(int thirdMoreAvgRead) {
 		this.thirdMoreAvgRead = thirdMoreAvgRead;
+	}
+
+	public String getWechatId() {
+		return wechatId;
+	}
+
+	public void setWechatId(String wechatId) {
+		this.wechatId = wechatId;
+	}
+
+	public String getHead() {
+		return head;
+	}
+
+	public void setHead(String head) {
+		this.head = head;
+	}
+
+	public String getQrCode() {
+		return qrCode;
+	}
+
+	public void setQrCode(String qrCode) {
+		this.qrCode = qrCode;
+	}
+
+	public String getBizDesc() {
+		return bizDesc;
+	}
+
+	public void setBizDesc(String bizDesc) {
+		this.bizDesc = bizDesc;
 	}
 }

@@ -146,7 +146,7 @@
     function showList(page,data){
     	$("#list").html("");
     	$.each(data,function(i,v){
-    		var html = makeHtml(v.id,(page*10-10+1)+i,v.logurl,v.bizName,v.wechatId,v.fans,v.weekReadMean,v.weekReadCount,v.weekPushCount);
+    		var html = makeHtml(v.id,(page*10-10+1)+i,v.head,v.bizName,v.wechatId,v.fans,v.weekReadMean,v.weekReadCount,v.weekPushCount);
     		$("#list").append(html);
     	})
     }

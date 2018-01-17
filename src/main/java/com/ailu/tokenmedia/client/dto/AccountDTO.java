@@ -4,12 +4,12 @@ public class AccountDTO {
 
 	private int id;
 	private String bizName;
-	private String wechatid;
+	private String wechatId;
 	private int fans;
 	private int weekReadMean;
 	private int weekReadCount;
 	private int weekPushCount;
-	private String logurl;
+	private String head;
 
 	public int getId() {
 		return id;
@@ -25,14 +25,6 @@ public class AccountDTO {
 
 	public void setBizName(String bizName) {
 		this.bizName = bizName;
-	}
-
-	public String getWechatid() {
-		return wechatid;
-	}
-
-	public void setWechatid(String wechatid) {
-		this.wechatid = wechatid;
 	}
 
 	public int getFans() {
@@ -67,12 +59,20 @@ public class AccountDTO {
 		this.weekPushCount = weekPushCount;
 	}
 
-	public String getLogurl() {
-		return logurl;
+	public String getWechatId() {
+		return wechatId;
 	}
 
-	public void setLogurl(String logurl) {
-		this.logurl = logurl;
+	public void setWechatId(String wechatId) {
+		this.wechatId = wechatId;
+	}
+
+	public String getHead() {
+		return head;
+	}
+
+	public void setHead(String head) {
+		this.head = head;
 	}
 
 }
