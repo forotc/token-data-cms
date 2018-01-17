@@ -20,11 +20,90 @@
     <meta name="referrer" content="never">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- LINK TAGS -->
-    <link rel='stylesheet' href='css/js_composer.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='${base}/css/js_composer.css' type='text/css' media='all'/>
     <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="css/common.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="${base}/css/style.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="${base}/css/common.css" type="text/css" media="screen">
     <style>
+        #top_lists thead tr th:nth-child(1){
+            width: 8%;
+        }
+
+        #top_lists thead tr th:nth-child(2){
+            width: 20%
+        }
+
+        #top_lists thead tr th:nth-child(3){
+            width: 14%;
+        }
+
+        #top_lists thead tr th:nth-child(4){
+            width: 20%;
+        }
+        #top_lists thead tr th:nth-child(5){
+            width: 8%;
+        }
+        #top_lists thead tr th:nth-child(6){
+            width: 8%;
+        }
+        #top_lists thead tr th:nth-child(7){
+            width: 5%;
+        }
+
+        .six-box .six-1 .text1 span:nth-child(1){
+            font-size: 50px;
+        }
+
+        .six-box .six-1 .text1 span:nth-child(2){
+            font-size: 30px;
+        }
+
+        .six-box .six-1 .text2{
+            font-size: 26px;
+            padding-left: 10px;
+        }
+
+        .six-box .six-2 .text3 span:nth-child(1),.six-box .six-3 .text3 span:nth-child(1),.six-box .six-6 .text3 span:nth-child(1){
+            font-size: 45px;
+        }
+
+        .six-box .six-2 .text3 span:nth-child(2),.six-box .six-3 .text3 span:nth-child(2),.six-box .six-6 .text3 span:nth-child(2){
+            font-size: 30px;
+        }
+
+        .six-box .six-5 .text1{
+            width: 100%;
+        }
+
+        .six-box .six-5 .text2{
+            margin-left: 30px;
+            margin-top: 15px;
+        }
+
+        .six-box .six-5 .text3{
+            padding: 10px 30px;
+        }
+
+        .six-box .six-5 .text1 span:nth-child(1){
+            font-size: 45px;
+        }
+
+        .six-box .six-5 .text1 span:nth-child(2){
+            font-size: 30px;
+        }
+
+        .six-box .six-6 .text2{
+            margin-top: 20px;
+        }
+
+        .six-box .six-6{
+            padding: 30px 60px;
+        }
+
+        .six-box .six-6 .text3{
+            margin-top: 10px;
+        }
+
         #goodcover {
             display: none;
             position: absolute;
@@ -104,29 +183,29 @@
                     <div class="slider-canvas container">
                         <div id="ninzio-layer-1386-1" class="ninzio-layer scaleout" data-direction="scaleout">
                             <div class="layer-wrap">
-                                <h2 style="padding-left: 250px">
-                                    <span>中国区块链自媒体影响力大数据</span>
+                                <h2 style="padding-left: 100px">
+                                    <span>China Blockchain We-Media Influence Big Data</span>
                                 </h2>
                             </div>
                         </div>
                         <div id="ninzio-layer-1386-3" class="ninzio-layer scaleout" data-direction="scaleout">
                             <div class="layer-wrap">
-                                <p style="padding-left: 480px">
-                                    <span>可能是区块链自媒体最全指南</span>
+                                <p style="padding-left: 300px">
+                                    <span>Might be the Most Comprehensive Handbook of Blockchain We-Media</span>
                                 </p>
                             </div>
                         </div>
                         <div id="ninzio-layer-1386-4" class="ninzio-layer scaleout" data-direction="scaleout">
                             <div class="layer-wrap" style="padding-left: 300px">
                                 <a class="button button-3d green medium rounded animate-false anim-type-ghost extra-green" href="#" target="_self">
-                                    <span class="txt">公众号排行榜</span>
+                                    <span class="txt">Top Official Accounts</span>
                                 </a>
                             </div>
                         </div>
                         <div id="ninzio-layer-1386-5" class="ninzio-layer scaleout" data-direction="scaleout">
                             <div class="layer-wrap" style="padding-left: 80px">
                                 <a class="button button-3d grey medium rounded animate-false anim-type-ghost extra-grey" href="#" target="_self">
-                                    <span class="txt">社群影响力</span>
+                                    <span class="txt">Social Influence</span>
                                 </a>
                             </div>
                         </div>
@@ -148,7 +227,7 @@
                                 <div class="nz-row">
                                     <div class="col col12  col-animate-true" data-align="left">
                                         <div class="nz-column-text nz-clearfix">
-                                            <h3 class="page-title">公众号影响力排行榜</h3>
+                                            <h3 class="page-title">Official Accounts Influence Ranking</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -175,7 +254,7 @@
                                             <div class="top-user-icon">
                                                 <img src="${account.head}">
                                                 <div class="btn-block">
-                                                    <button type="button" onclick="detail(${account.id})">详情</button>
+                                                    <button type="button" onclick="detail(${account.id})">Details</button>
                                                 </div>
                                             </div>
                                             <!--用户名-->
@@ -184,26 +263,26 @@
                                             </div>
                                             <!--公众号-->
                                             <div class="top-user-code">
-                                                <span>公众号：</span>
+                                                <span>Official Accounts：</span>
                                                 <span>${account.wechatId}</span>
                                             </div>
                                             <!--详情列表-->
                                             <div class="top-user-list">
                                                 <table>
                                                     <tr>
-                                                        <td>预估活跃粉丝：</td>
+                                                        <td>Estimated Active Fans：</td>
                                                         <td>${account.fans}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>一周头条平均阅读量：</td>
+                                                        <td>Average Weekly Views of Headlines：</td>
                                                         <td><span class="red-font">${account.weekReadMean}</span></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>每周阅读总量：</td>
+                                                        <td>Weekly Views：</td>
                                                         <td>${account.weekReadCount}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>每周推文数量：</td>
+                                                        <td>Weekly Posts：</td>
                                                         <td>${account.weekPushCount}</td>
                                                     </tr>
                                                 </table>
@@ -219,13 +298,13 @@
                                 <table id="top_lists">
                                     <thead>
                                     <tr>
-                                        <th>排行</th>
-                                        <th>公众号</th>
-                                        <th>预估活跃粉丝</th>
-                                        <th>头条阅读量</th>
-                                        <th>每周阅读总量</th>
-                                        <th>每周推文数量</th>
-                                        <th>操作</th>
+                                        <th>Ranking</th>
+                                        <th>Official Accounts</th>
+                                        <th>Estimated Active Fans</th>
+                                        <th>Average Weekly Views of Headlines</th>
+                                        <th>Weekly Views</th>
+                                        <th>Weekly Posts</th>
+                                        <th>Operation</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -257,7 +336,7 @@
                                             <span>${account.weekPushCount}</span>
                                         </td>
                                         <td>
-                                            <button type="button" onclick="detail(#{account.id})">详情</button>
+                                            <button type="button" onclick="detail(#{account.id})">Details</button>
                                         </td>
                                     </tr>
 									[/#if]
@@ -270,7 +349,7 @@
                             <div class="container">
                                 <div class="nz-row">
                                     <div class="col12" style="text-align: center;padding-top: 30px;margin-bottom: 0">
-                                        <button type="button" onclick="showDetails()">查看全部</button>
+                                        <button type="button" onclick="showDetails()">Check All</button>
                                     </div>
                                 </div>
                             </div>
@@ -284,7 +363,7 @@
                                 <div class="nz-row">
                                     <div class="col col12  col-animate-true" data-align="left">
                                         <div style="" class="nz-column-text nz-clearfix">
-                                            <h3 class="page-title">社群影响力</h3>
+                                            <h3 class="page-title">Social Influence</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -293,82 +372,82 @@
                         </div>
                         <!--社群影响力几何图形展示-->
                         <div class="nz-section full-width-true" style="background: linear-gradient(to bottom, #f7f7f7 50%, #FFFFFF 50%)";>
-                            <div class="container" id="six-ch">
+                            <div class="container" id="six-en">
                                 <div class="nz-row six-box">
                                     <div class="six-1">
                                         <div class="text1">
                                             <span>335</span>
-                                            <span>人</span>
+                                            <span>People</span>
                                         </div>
                                         <div class="text2">
-                                            <span>媒体账号</span>
+                                            <span>Media Accounts</span>
                                         </div>
                                         <div class="text3">
-                                            <span>TokenMedia已收录币圈微信公众号共计335个</span>
+                                            <span>TokenMedia has included 335 WeChat Official Accounts of currency circle.</span>
                                         </div>
                                     </div>
                                     <div class="six-2">
                                         <div class="text1">
-                                            <span>覆盖人群</span>
+                                            <span>Coverage</span>
                                         </div>
                                         <div class="text2">
-                                            <span>TokenMedia每天共计监控超过500+文章，每天分析超过13000000+次阅读量为您呈现最详细的行业数据</span>
+                                            <span>TokenMedia monitors 500+ articles per day, and analyzes 13000000+ views every day to present you the most detailed industrial data.</span>
                                         </div>
                                         <div class="text3">
                                             <span>13,000,000</span>
-                                            <span>次</span>
+                                            <span>Views</span>
                                         </div>
                                     </div>
                                     <div class="six-3">
                                         <div class="text1">
-                                            <span>协会成员</span>
+                                            <span>Association Members</span>
                                         </div>
                                         <div class="text2">
-                                            <span>超过30+公众号已加入TokenMedia,与协会共同发展</span>
+                                            <span>Over 30+ official accounts have joined TokenMedia to develop and grow with the association. </span>
                                         </div>
                                         <div class="text3">
                                             <span>30+</span>
-                                            <span>个</span>
+                                            <span>Number</span>
                                         </div>
                                     </div>
                                     <div class="six-4">
                                         <div class="text1">
-                                            <span>微信群</span>
+                                            <span>WeChat Group</span>
                                         </div>
                                         <div class="text2">
-                                            <span>873个微信群已经和TokenMedia达成共识</span>
+                                            <span>873 WeChat groups have achieved agreement with TokenMedia.</span>
                                         </div>
                                         <div class="text3">
                                             <span>873</span>
-                                            <span style="font-size: 24px;">个</span>
+                                            <span style="font-size: 24px;">Number</span>
                                         </div>
                                     </div>
                                     <div class="six-5">
                                         <div class="text1">
                                             <span>982</span>
-                                            <span>个</span>
+                                            <span>Number</span>
                                         </div>
                                         <div class="text2">
-                                            <span>QQ群</span>
+                                            <span>QQ Group</span>
                                         </div>
                                         <div class="text3">
-                                            <span>已有982个QQ群和TokenMedia开始合作</span>
+                                            <span>982 QQ Groups have started to work with TokenMedia.</span>
                                         </div>
                                     </div>
                                     <div class="six-6">
                                         <div class="text1">
-                                            <span>影响力</span>
+                                            <span>Influence</span>
                                         </div>
                                         <div class="text2">
-                                            <span>TokenMedia已经和众多微信公众号、微信群主、QQ群主、知识星球圈群主、微博大V、知乎大V、贴吧吧主达成合作协议。影响力预计覆盖3000000人次</span>
+                                            <span>TokenMedia has established partnerships with many WeChat official accounts, WeChat group leaders, QQ group leaders, Knowledge Planet group leaders, MicroBlog Big Vs, Quora Big Vs, and Post Bar Leaders. Its influence is estimated to cover 3,000,000 people.</span>
                                         </div>
                                         <div class="text3">
                                             <span>3,000,000</span>
-                                            <span>人</span>
+                                            <span>People</span>
                                         </div>
                                     </div>
                                 </div>
-                                <img src="${base}/img/ch_pic.png" id="ch_pic" style="display: none">
+                                <img src="${base}/img/en_pic.png" id="en-pic" style="display: none">
                             </div>
                         </div>
                     </section>
@@ -392,24 +471,24 @@
             <img src="${base}/img/close.gif">
         </a>
     </div>
-    <div class="code-img"><img id="ewmsrc" src="img/our-code.jpeg"/></div>
+    <div class="code-img"><img id="ewmsrc" src="${base}/img/our-code.jpeg"/></div>
 </div>
 </div>
 <!-- 整个底板结束 -->
-<script type='text/javascript' src='js/jquery/jquery.js'></script>
-<script type='text/javascript' src='js/jquery/jquery-migrate.min.js'></script>
-<script type='text/javascript' src='js/modernizr.js'></script>
+<script type='text/javascript' src='${base}/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='${base}/js/jquery/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='${base}/js/modernizr.js'></script>
 
-<script type='text/javascript' src='js/jquery-blockui/jquery.blockUI.min.js'></script>
+<script type='text/javascript' src='${base}/js/jquery-blockui/jquery.blockUI.min.js'></script>
 
-<script type='text/javascript' src='js/frontend/woocommerce.min.js'></script>
-<script type='text/javascript' src='js/jquery-cookie/jquery.cookie.min.js'></script>
+<script type='text/javascript' src='${base}/js/frontend/woocommerce.min.js'></script>
+<script type='text/javascript' src='${base}/js/jquery-cookie/jquery.cookie.min.js'></script>
 
-<script type='text/javascript' src='js/jquery.shuffle.js'></script>
-<script type='text/javascript' src='js/plugins.js'></script>
-<script type='text/javascript' src='js/controller.js'></script>
-<script type='text/javascript' src='js/js_composer_front.js'></script>
-<script type='text/javascript' src='js/contact-form.js'></script>
+<script type='text/javascript' src='${base}/js/jquery.shuffle.js'></script>
+<script type='text/javascript' src='${base}/js/plugins.js'></script>
+<script type='text/javascript' src='${base}/js/controller.js'></script>
+<script type='text/javascript' src='${base}/js/js_composer_front.js'></script>
+<script type='text/javascript' src='${base}/js/contact-form.js'></script>
 <script>
     $(document).ready(function () {
         $(".highlights-menu .menu>li").on("click",function () {
@@ -418,11 +497,11 @@
     })
     
    	function showDetails(){
-    	window.location.href="${base}/top";
+    	window.location.href="${base}/top/en";
     }
     
     function detail(id){
-    	window.location.href="${base}/detail/"+id;
+    	window.location.href="${base}/detail/en/"+id;
     }
 
     //弹出二维码

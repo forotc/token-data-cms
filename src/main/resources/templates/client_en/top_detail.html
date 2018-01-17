@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html data-color="#00a388" class="no-js ie6 oldie btn-rounded btn-3d blank-true" lang="en-US"> <![endif]-->
+<!--[if IE 7]>
+<html data-color="#00a388" class="no-js ie7 oldie btn-rounded btn-3d blank-true" lang="en-US"> <![endif]-->
+<!--[if IE 8]>
+<html data-color="#00a388" class="no-js ie8 oldie btn-rounded btn-3d blank-true" lang="en-US"> <![endif]-->
+<!--[if IE 9]>
+<html data-color="#00a388" class="no-js ie9 oldie btn-rounded btn-3d blank-true" lang="en-US"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<!--<![endif]-->
+
+<html data-color="#00a388" class="no-js btn-rounded btn-3d blank-true" lang="en-US">
+<head>
+	[#assign base=request.contextPath /]
+    <!--TITLE-->
+    <title>TOKEN MEDIA</title>
+    <!-- META TAGS -->
+    <meta charset="UTF-8"/>
+    <meta name="referrer" content="never">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- LINK TAGS -->
+    <link rel='stylesheet' href='${base}/css/js_composer.css' type='text/css' media='all'/>
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+    <link rel="stylesheet" href="${base}/css/style.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="${base}/css/common.css" type="text/css" media="screen">
+</head>
+
+<body class="page page-id-156 page-template-default wpb-js-composer js-comp-ver-4.4.4 vc_responsive">
+<!-- 整体底板 -->
+<div id="gen-wrap">
+    <div id="wrap" class="nz-wide">
+        <!-- 头部开始 -->
+        [#include "common/header.html" /]
+        <!-- 头部结束 -->
+        <div class='page-full-width' style="min-width: 1100px">
+            <!-- content start -->
+            <div class='content nz-clearfix'>
+                <!-- post start -->
+                <div id="post-156" class="post-156 page type-page status-publish">
+                    <!--公众号影响力-->
+                    <section class="page-content nz-clearfix">
+                        <!--公众号影响力排行标题-->
+                        <div class="nz-section horizontal animate-false full-width-true" style="background-color: #F7F7F7;padding-bottom: 20px">
+                            <div class="container">
+                                <div class="nz-row">
+                                    <div class="col col12  col-animate-true" data-align="left">
+                                        <div class="nz-column-text nz-clearfix">
+                                            <h3 class="page-title" style="padding-top: 40px">Top Official Accounts</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="title-bottom hr-green">
+                        </div>
+                        <div class="nz-section full-width-true" style="padding: 50px 30px">
+                            <table id="top_lists" style="min-width: 1100px;">
+                                <thead>
+                                <tr>
+                                    <th>Ranking</th>
+                                    <th>Official Accounts</th>
+                                    <th>Estimated Active Fans</th>
+                                    <th>Average Weekly Views of Headlines</th>
+                                    <th>Weekly Views</th>
+                                    <th>Weekly Posts</th>
+                                    <th>Operation</th>
+                                </tr>
+                                </thead>
+                                <tbody id="list">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="padding-bottom: 100px">
+                            <div id="pages" style="width: 200px;">
+                                <!-- <div class="ctrl-page">
+                                    <a href="#">上一页</a>
+                                </div>
+                                <ul class="choose-page">
+                                    <li>
+                                        <a href="#">1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">3</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">4</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">5</a>
+                                    </li>
+                                </ul>
+                                <div class="ctrl-page">
+                                    <a href="#">下一页</a>
+                                </div -->>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- post end -->
+            </div>
+            <!-- content end -->
+        </div>
+        <!-- 页面主体结束 -->
+
+        <!-- 尾部开始 -->
+       	[#include "common/footer.html" /]
+        <!-- 尾部结束 -->
+    </div>
+    <!-- 页面容器结束 -->
+</div>
+<!-- 整个底板结束 -->
+<script type='text/javascript' src='${base}/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='${base}/js/jquery/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='${base}/js/modernizr.js'></script>
+
+<script type='text/javascript' src='${base}/js/jquery-blockui/jquery.blockUI.min.js'></script>
+
+<script type='text/javascript' src='${base}/js/frontend/woocommerce.min.js'></script>
+<script type='text/javascript' src='${base}/js/jquery-cookie/jquery.cookie.min.js'></script>
+
+<script type='text/javascript' src='${base}/js/jquery.shuffle.js'></script>
+<script type='text/javascript' src='${base}/js/plugins.js'></script>
+<script type='text/javascript' src='${base}/js/controller.js'></script>
+<script type='text/javascript' src='${base}/js/js_composer_front.js'></script>
+<script type='text/javascript' src='${base}/js/contact-form.js'></script>
+<script>
+    $(document).ready(function () {
+        $(".highlights-menu .menu>li").on("click",function () {
+            $(this).find("ol").slideToggle();
+        })
+        
+        page(1);
+    })
+    
+    function page(i){
+		$.get("${base}/list/"+i,function(r){
+			if(r.code == 0 ){
+				showList(i,r.data);
+				showPage(r.currPage,r.pageCount);
+			}
+		},'json')
+    }
+    
+    function showList(page,data){
+    	$("#list").html("");
+    	$.each(data,function(i,v){
+    		var html = makeHtml(v.id,(page*10-10+1)+i,v.head,v.bizName,v.wechatId,v.fans,v.weekReadMean,v.weekReadCount,v.weekPushCount);
+    		$("#list").append(html);
+    	})
+    }
+    
+    function makeHtml(id,index,head,name,wechatId,fans,weekReadMean,weekReadCount,weekPushCount){
+    	var html = '<tr><td><span>'+index+'</span></td><td>'+
+    				'<img src="'+head+'"><div class="top-detail">'+
+    				'<span class="top-list-name">'+name+'</span>'+
+    				'<span class="top-list-code">'+wechatId+'</span></div></td>'+
+    				'<td><span>'+fans+'</span></td><td><span>'+weekReadMean+'</span>'+
+    				'</td><td><span>'+weekReadCount+'</span></td><td>'+
+    				'<span>'+weekPushCount+'</span></td>'+
+    				'<td><button type="button" onclick="detail('+id+')">Details</button></td></tr>';
+    	return html;
+    }
+    
+    function showPage(currPage, pageCount){
+    	var currPage = currPage;
+		var pageCount = pageCount;
+		var p="",n="",html ="";
+		
+		if(pageCount == 1){
+			p='<div class="ctrl-page"><a href="javascript:;">上一页</a></div>';
+		//	html='<ul class="choose-page"><li><a href="javascript:;">1</a></li></ul>';
+			n='<div class="ctrl-page"><a href="javascript:;">下一页</a></div>';
+		}else{
+			if(currPage == 1){
+				p='<div class="ctrl-page"><a href="javascript:;">上一页</a></div>';
+				n='<div class="ctrl-page"><a href="javascript:page('+ (currPage+1) +');">下一页</a></div>';
+			}else if(currPage == pageCount){
+				p='<div class="ctrl-page"><a href="javascript:page('+ (currPage-1) +');">上一页</a></div>';
+				n='<div class="ctrl-page"><a href="javascript:;">下一页</a></div>';
+			}else{
+				p='<div class="ctrl-page"><a href="javascript:page('+ (currPage-1) +');">上一页</a></div>';
+				n='<div class="ctrl-page"><a href="javascript:page('+ (currPage+1) +');">下一页</a></div>';
+			}
+
+			/* for (var i = 0; i < pageCount; i++) {
+				if(currPage == i+1)
+					html += '<li><a href="javascript:;">'+ (i+1) +'</a></li>';
+				else
+					html += '<li><a href="javascript:page('+ (i+1) +');">'+ (i+1) +'</a></li>';
+			} */
+			
+		//	html='<ul class="choose-page">'+ html +'</ul>';
+		}
+
+		$("#pages").html(p + n);
+    }
+    
+    function detail(id){
+    	window.location.href="${base}/detail/en/"+id;
+    }
+</script>
+</body>
+</html>
