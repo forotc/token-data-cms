@@ -1,40 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.weinxindata.ailu.client.dao.AccountDao">
+<mapper namespace="com.ailu.tokenmedia.client.dao.AccountDao">
 
-	<!-- <select id="getAccounts" resultType="com.weinxindata.ailu.client.dto.AccountDTO">
-		SELECT w.id, w.wechatid,d.fans,d.logurl,t1.readMean weekReadMean,t2.readCount weekReadCount,t3.pushCount weekPushCount,w.biz_name
+	<select id="getAccounts" resultType="com.ailu.tokenmedia.client.dto.AccountDTO">
+		SELECT w.id,w.wechat_id,w.biz_name,wi.fans,w.head,wi.first_avg_read weekReadMean,
+		wi.first_avg_read*7 weekReadCount,wi.article_count weekPushCount
 		FROM wechat w
-		LEFT JOIN article a ON w.wechatid=a.wechatid
-		LEFT JOIN diagnosis d ON w.wechatid=d.wechatid
-		LEFT JOIN (
-		SELECT wechatid, SUM(read_number)/7 readMean
-		FROM article
-		ORDER BY pub_time
-		LIMIT 0,6) t1 ON w.wechatid=t1.wechatid
-		LEFT JOIN (
-		SELECT wechatid, SUM(read_number) readCount
-		FROM article
-		ORDER BY pub_time
-		LIMIT 0,6) t2 ON w.wechatid=t2.wechatid
-		LEFT JOIN (
-		SELECT wechatid, COUNT(0) pushCount
-		FROM article
-		ORDER BY pub_time
-		LIMIT 0,6) t3 ON w.wechatid=t3.wechatid
-		GROUP BY w.wechatid
-		ORDER BY d.fans desc,weekReadMean DESC,weekReadCount desc,weekPushCount desc
-		limit 0,10
-	</select> -->
-	
-	<select id="getAccounts" resultType="com.weinxindata.ailu.client.dto.AccountDTO">
-		SELECT w.id,w.wechatid,d.biz_name,d.fans,d.logurl,first_avg_read weekReadMean,
-		first_avg_read*7 weekReadCount,article_count weekPushCount,w.biz_name
-		FROM wechat w
-		LEFT JOIN article a ON w.wechatid=a.wechatid
-		LEFT JOIN diagnosis d ON w.wechatid=d.wechatid
-		GROUP BY w.wechatid
-		ORDER BY d.fans desc,weekReadMean DESC,weekReadCount desc,weekPushCount desc
+		LEFT JOIN wechat_info wi ON w.wechat_id=wi.wechat_id and w.biz_name is not null
+		GROUP BY w.wechat_id
+		ORDER BY wi.fans desc,weekReadMean DESC,weekReadCount desc,weekPushCount desc
 		limit #{start},#{length}
 	</select>
 	
@@ -42,10 +16,10 @@
 		select count(0) FROM wechat 
 	</select>
 	
-	<select id="getDetail" resultType="com.weinxindata.ailu.client.dto.AccountDetailDTO">
-		SELECT w.id,w.wechatid,w.qrcode,d.biz_name,d.logurl,d.iz_desc,d.fans,d.first_avg_read,
-		d.second_avg_read,d.third_more_avg_read
-		FROM wechat w LEFT JOIN diagnosis d ON w.wechatid=d.wechatid
+	<select id="getDetail" resultType="com.ailu.tokenmedia.client.dto.AccountDetailDTO">
+		SELECT w.id,w.wechat_id,w.qr_code,w.biz_name,w.head,w.biz_desc,wi.fans,wi.first_avg_read,
+		wi.second_avg_read,wi.third_more_avg_read,wi.article_count weekPushCount
+		FROM wechat w LEFT JOIN wechat_info wi ON w.wechat_id=wi.wechat_id
 		where w.id=#{id}
 	</select>
 

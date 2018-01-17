@@ -29,94 +29,9 @@
 <!-- 整体底板 -->
 <div id="gen-wrap">
     <div id="wrap" class="nz-wide">
-        <!--移动端头部-->
-        <header class="header mob-header mob-height-90 mob-int-true mob-sidebar-true mob-search-true">
-            <div class="logo-toggle">
-                <div class="container nz-clearfix">
-                    <!--移动端头部logo-->
-                    <div class="logo logo-mob">
-                        <a href="${base}/">
-                            <img src="img/logo.svg" alt="Logo">
-                        </a>
-                    </div>
-                    <!--移动端功能下拉菜单-->
-                    <div class="menu-toggle" title="Toggle menu">
-                        <span>&nbsp;</span>
-                        <span>&nbsp;</span>
-                        <span>&nbsp;</span>
-                    </div>
-                </div>
-            </div>
-            <div class="header-content">
-                <!--移动端下拉菜单内容-->
-                <nav class="header-menu mob-menu nz-clearfix">
-                    <ul id="mob-header-menu" class="menu">
-                        <li><a href="${base}/">首页</a></li>
-                        <li><a href="${base}/showDetails">排行榜</a></li>
-                        <li><a href="#">商业合作</a></li>
-                    </ul>
-                    <ul id="change-menu" class="menu">
-                        <li><a href="#">English</a></li>
-                        <li><a href="#">Chinese</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-        </header>
-        <!--宽屏头部-->
-        <header data-fixedh="70" class="header desk desk-height-90 desk-sl-true desk-sl-align-right desk-ls-false desk-di-false desk-fixed-true fixed-height-70 stuck-height-90 stuck-false effect-upperline sub-effect-ghost desk-sidebar-true top-false stuck-top-false menu-border-true">
-            <div class="header-content">
-                <div class="container nz-clearfix">
-                    <div class="header-cont">
-                        <!--宽屏logo-->
-                        <div class="logo logo-desk">
-                            <a href="${base}/">
-                                <img src="img/logo.svg" alt="Logo">
-                            </a>
-                        </div>
-                        <div class="logo logo-fixed">
-                            <a href="${base}/">
-                                <img src="img/logo.svg" alt="Logo">
-                            </a>
-                        </div>
-                        <!--中英文切换按钮-->
-                        <nav class="highlights-menu nz-clearfix">
-                            <ul id="highlights-menu" class="menu">
-                                <li>
-                                    <a href="#">
-                                        <img src="img/chinese.png" alt="lang_pic">
-                                        <span>Chinese</span>
-                                    </a>
-                                    <ol>
-                                        <li>
-                                            <a href="#">
-                                                <img src="img/english.png" alt="lang_pic">
-                                                <span>English</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img src="img/chinese.png" alt="lang_pic">
-                                                <span>Chinese</span>
-                                            </a>
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ul>
-                        </nav>
-                        <!--宽屏导航功能-->
-                        <nav class="header-menu desk-menu nz-clearfix">
-                            <ul class="menu">
-                                <li><a href="${base}/">首页</a></li>
-                       			<li><a href="${base}/showDetails">排行榜</a></li>
-                                <li><a href="#">商业合作</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!--主要展示部分-->
+        <!-- 头部开始 -->
+        [#include "common/header.html" /]
+        <!-- 头部结束 -->
         <div class='page-full-width' style="min-width: 1100px">
             <!-- content start -->
             <div class='content nz-clearfix'>
@@ -190,73 +105,7 @@
         <!-- 页面主体结束 -->
 
         <!-- 尾部开始 -->
-        <footer class='footer'>
-            <a class="icon-arrow-up7" id="top" href="#wrap"></a>
-            <aside class="footer-widget-area widget-area">
-                <div class="container nz-clearfix">
-                    <div class="nz-row">
-                        <div id="text-2" class="widget widget_text">
-                            <div class="textwidget">
-                                <img src="img/logo_white.svg" alt="footer-logo">
-                                <div class='gap nz-clearfix' style='height:20px'>&nbsp;</div>
-                                <ul class="footer-list-item">
-                                    <li style="width: 80%">
-                                        <span>Token Media是国内区块链相关自媒体的联合协会，Token Magadata是协会下面的自媒体大数据平台，通过监控行业内相关公众号的公开数据（比如文章阅读量、点赞量、文章标题）进行分析得到相关数据。</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div id="twitter-2" class="widget widget_text">
-                            <h6 class="widget_title">商务合作</h6>
-                            <div class='gap nz-clearfix' style='height:20px'>&nbsp;</div>
-                            <div class="textwidget">
-                                <ul class="footer-list-item">
-                                    <li>
-                                        <a href="#">
-                                            <span class="footer-label">联系邮箱：</span>
-                                            <span class="list-text">block_media@163.com</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="footer-label">联系电话：</span>
-                                            <span class="list-text">18227288292</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="footer-label">联系地址：</span>
-                                            <span class="list-text">上海市浦东新区陆家嘴金融中心133弄233号1302</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div id="our-code" class="widget widget_text">
-                            <h6 class="widget_title">关注我们</h6>
-                            <div class='gap nz-clearfix' style='height:20px'>&nbsp;</div>
-                            <div class="show-code">
-                                <img src="img/our-code.jpeg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-            <div class="footer-content">
-                <div class="container nz-clearfix">
-                    <nav class="footer-menu nz-clearfix">
-                        <ul id="footer-menu" class="menu">
-                            <li id="menu-item-141" class="menu-item-141"><a href="${base}/">首页</a></li>
-                            <li id="menu-item-142" class="menu-item-142"><a href="${base}/showDetails">排行榜</a></li>
-                            <li id="menu-item-143" class="menu-item-143"><a href="#">商业合作</a></li>
-                        </ul>
-                    </nav>
-                    <div class="footer-info">
-                        <span style="font-size:14px">&copy; 2018 Token Media</span>
-                    </div>
-                </div>
-            </div>
-        </footer>
+       	[#include "common/footer.html" /]
         <!-- 尾部结束 -->
     </div>
     <!-- 页面容器结束 -->
@@ -297,7 +146,7 @@
     function showList(page,data){
     	$("#list").html("");
     	$.each(data,function(i,v){
-    		var html = makeHtml(v.id,(page*10-10+1)+i,v.logurl,v.bizName,v.wechatId,v.fans,v.weekReadMean,v.weekReadCount,v.weekPushCount);
+    		var html = makeHtml(v.id,(page*10-10+1)+i,v.head,v.bizName,v.wechatId,v.fans,v.weekReadMean,v.weekReadCount,v.weekPushCount);
     		$("#list").append(html);
     	})
     }
@@ -349,7 +198,7 @@
     }
     
     function detail(id){
-    	window.location.href="/detail/"+id;
+    	window.location.href="${base}/detail/"+id;
     }
 </script>
 </body>
