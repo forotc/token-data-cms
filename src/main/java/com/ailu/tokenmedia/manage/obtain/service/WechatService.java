@@ -1,6 +1,6 @@
-package com.ailu.tokenmedia.manage.wechat.service;
+package com.ailu.tokenmedia.manage.obtain.service;
 
-import com.ailu.tokenmedia.manage.wechat.dao.WechatDao;
+import com.ailu.tokenmedia.manage.obtain.dao.WechatDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

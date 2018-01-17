@@ -1,7 +1,5 @@
-package com.ailu.tokenmedia.manage.Obtain.service;
+package com.ailu.tokenmedia.manage.obtain.service;
 
-import com.ailu.tokenmedia.manage.wechat.service.WechatService;
-import com.ailu.tokenmedia.manage.wechatInfo.service.WechatInfoService;
 import com.ailu.tokenmedia.utils.HttpclientUtils;
 import com.ailu.tokenmedia.utils.ObtainUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,7 +13,6 @@ import java.util.concurrent.Executor;
 /**
  * @author liu zhenming
  * @version V1.0
- * @Description: TODO
  * @date 2018/1/17
  */
 @Service

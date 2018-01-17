@@ -1,8 +1,6 @@
-package com.ailu.tokenmedia.manage.wechat.dao;
+package com.ailu.tokenmedia.manage.obtain.dao;
 
 import org.apache.ibatis.annotations.Param;
-
-import java.util.Date;
 
 /**
  * @author liu zhenming
