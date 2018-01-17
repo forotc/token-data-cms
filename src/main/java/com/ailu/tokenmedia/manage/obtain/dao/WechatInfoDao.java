@@ -1,4 +1,4 @@
-package com.ailu.tokenmedia.manage.wechatInfo.dao;
+package com.ailu.tokenmedia.manage.obtain.dao;
 
 import org.apache.ibatis.annotations.Param;
 
