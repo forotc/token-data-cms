@@ -57,6 +57,107 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+       	<div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">详情</h4>
+                </div>
+                <div class="modal-body">
+                	
+                 	<div class="row">
+                 		<div class="col-sm-6" style="text-align: center;">
+						    <img id="head" src="" alt="." height="80" class="img-rounded">
+                 		</div>
+                 		<div class="col-sm-6" style="text-align: center;">
+                 			<img id="qrCode" src="" alt="." height="80" class="img-rounded">
+                 		</div>
+                	</div>
+                	<div class="row">
+                 		<div class="col-sm-12">
+                 			<div class="form-horizontal">
+	                 			<div class="form-group">
+								    <label class="col-sm-2 control-label">公众号名称：</label>
+								    <div class="col-sm-6">
+								      <p class="form-control-static" id="bizName"></p>
+								    </div>
+								</div>
+                 			</div>
+                 		</div>
+                	</div>
+                	<div class="row">
+                 		<div class="col-sm-12">
+                 			<div class="form-horizontal">
+	                 			<div class="form-group">
+								    <label class="col-sm-2 control-label">公众号ID：</label>
+								    <div class="col-sm-6">
+								      <p class="form-control-static" id="wechatId"></p>
+								    </div>
+								</div>
+							</div>
+                 		</div>
+                	</div>
+                	<div class="row">
+                 		<div class="col-sm-12">
+                 			<div class="form-horizontal">
+	                 			<div class="form-group">
+								    <label class="col-sm-2 control-label">公众号描述：</label>
+								    <div class="col-sm-9">
+								      <p class="form-control-static" id="bizDesc"></p>
+								    </div>
+								</div>
+							</div>
+                 		</div>
+                	</div>
+                	<div class="row">
+	                	<div class="col-sm-6" style="text-align: center;">
+						    <div>
+						    	<p style="font-size: 24px;" id="fans"></p>
+						    </div>
+                 			<div>
+                 				<p class="form-control-static">公众号预估活跃粉丝数</p>
+                 			</div>
+                 		</div>
+                 		<div class="col-sm-6" style="text-align: center;">
+						    <div>
+						    	<p style="font-size: 24px;" id="firstAvgRead"></p>
+						    </div>
+                 			<div>
+                 				<p class="form-control-static">文章发布数</p>
+                 			</div>
+                 		</div>
+                	</div>
+                	<div class="row">
+	                	<div class="col-sm-4" style="text-align: center;">
+						    <div>
+						    	<p style="font-size: 24px;" id="secondAvgRead"></p>
+						    </div>
+                 			<div>
+                 				<p class="form-control-static">头条平均阅读</p>
+                 			</div>
+                 		</div>
+                 		<div class="col-sm-4" style="text-align: center;">
+						    <div>
+						    	<p style="font-size: 24px;" id="thirdMoreAvgRead"></p>
+						    </div>
+                 			<div>
+                 				<p class="form-control-static">次条平均阅读</p>
+                 			</div>
+                 		</div>
+                 		<div class="col-sm-4" style="text-align: center;">
+						    <div>
+						    	<p style="font-size: 24px;" id="articleCount"></p>
+						    </div>
+                 			<div>
+                 				<p class="form-control-static">3-n条阅读</p>
+                 			</div>
+                 		</div>
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 	<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="//cdn.bootcss.com/datatables/1.10.15/js/jquery.dataTables.min.js"></script>
@@ -119,7 +220,7 @@
 				}, {
 					"data" : "id",
 					"render" : function(data, type, row, meta) {
-							return '<button class="btn btn-warning btn-sm" type="button" onclick="detail('+ data +')">查看详情</button>'+
+							return '<button class="btn btn-warning btn-sm" type="button" data-toggle="modal" data-target="#modal" onclick="detail('+ data +')">查看详情</button>'+
 							'&nbsp;&nbsp;<button class="btn btn-danger btn-sm" type="button" onclick="del('+ data +')">删除</button>';
 					}
 				}  ],
@@ -144,6 +245,23 @@
         	window.location.href="${base}/manage/account/add";
         })
         
+        function detail(id){
+        	$.get("${base}/manage/account/detail/"+id,function(r){
+        		if(r.code == 0){
+        			$("#head").attr("src",r.data.head);
+        			$("#qrCode").attr("src",r.data.qrCode);
+        			$("#bizName").html(r.data.bizName);
+        			$("#wechatId").html(r.data.wechatId);
+        			$("#fans").html(r.data.fans);
+        			$("#bizDesc").html(r.data.bizDesc);
+        			$("#firstAvgRead").html(r.data.firstAvgRead);
+        			$("#secondAvgRead").html(r.data.secondAvgRead);
+        			$("#thirdMoreAvgRead").html(r.data.thirdMoreAvgRead);
+        			$("#articleCount").html(r.data.articleCount);
+        		}
+        	},'json')
+        }
+        
         function del(id){
         	swal({
 				  title: '确定要删除吗?',
@@ -162,6 +280,7 @@
 		        	},'json')
 				})
         }
+        
     </script>
 
 </body>
