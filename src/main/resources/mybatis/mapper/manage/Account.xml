@@ -21,6 +21,15 @@
 		insert IGNORE into wechat (wechat_id,type,is_del) values (#{account},#{type},1)
 	</insert>
 	
+	<select id="getDetail" resultType="com.ailu.tokenmedia.manage.account.dto.AccountDetailDTO">
+		SELECT w.id,w.wechat_id,w.qr_code,w.biz_name,w.head,w.biz_desc,wi.fans,wi.first_avg_read,
+		wi.second_avg_read,wi.third_more_avg_read,wi.article_count
+		FROM wechat w LEFT JOIN
+		wechat_info wi ON w.wechat_id=wi.wechat_id and wi.create_time = (
+		select max(create_time) from wechat_info where w.wechat_id=wechat_id group by wechat_id ) 
+		where w.id=#{id}
+	</select>
+	
 	<update id="del">
 		update wechat set is_del=2 where id=#{id}
 	</update>

@@ -63,6 +63,12 @@ public class ManageAccountController {
 		return R.ok();
 	}
 
+	@RequestMapping("detail/{id}")
+	@ResponseBody
+	public R detail(@PathVariable("id") int id) {
+		return R.ok(accountService.getDetail(id));
+	}
+
 	@RequestMapping("del/{id}")
 	@ResponseBody
 	public R del(@PathVariable("id") int id) {

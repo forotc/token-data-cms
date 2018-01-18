@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.ailu.tokenmedia.common.R;
 import com.ailu.tokenmedia.manage.account.dao.ManageAccountDao;
+import com.ailu.tokenmedia.manage.account.dto.AccountDetailDTO;
 import com.ailu.tokenmedia.manage.account.dto.AccountListDTO;
 import com.ailu.tokenmedia.manage.obtain.service.ObtainService;
 
@@ -39,6 +40,10 @@ public class ManageAccountService {
 		List<String> list = new ArrayList<>();
 		list.add(account);
 		obtainService.saveWechatInfo(list);
+	}
+
+	public AccountDetailDTO getDetail(int id) {
+		return accountDao.getDetail(id);
 	}
 
 	public void del(int id) {
