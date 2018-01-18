@@ -15,5 +15,9 @@ public interface ManageAccountDao {
 
 	void save(@Param("account") String account, @Param("type") int type);
 
+	void del(int id);
+
 	List<String> getNull();
+
+	List<String> getList4Timer(@Param("type") int type);
 }

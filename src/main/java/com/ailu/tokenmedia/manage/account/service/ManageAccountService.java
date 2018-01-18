@@ -41,8 +41,16 @@ public class ManageAccountService {
 		obtainService.saveWechatInfo(list);
 	}
 
+	public void del(int id) {
+		accountDao.del(id);
+	}
+
 	public List<String> getNull() {
 		return accountDao.getNull();
+	}
+
+	public List<String> getList4Timer(int type) {
+		return accountDao.getList4Timer(type);
 	}
 
 	public R readExcle(InputStream input, String suffix) throws IOException {
