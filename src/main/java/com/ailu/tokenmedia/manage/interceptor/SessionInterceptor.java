@@ -25,7 +25,7 @@ public class SessionInterceptor implements HandlerInterceptor {
 				response.setHeader("sessionstatus", "timeout");
 				return false;
 			}
-			response.sendRedirect(request.getContextPath() + "/");
+			response.sendRedirect(request.getContextPath() + "/manage");
 			return false;
 		}
 		return true;

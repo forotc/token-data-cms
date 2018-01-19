@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.ailu.tokenmedia.manage.account.dto.AccountDetailDTO;
 import com.ailu.tokenmedia.manage.account.dto.AccountListDTO;
 
 public interface ManageAccountDao {
@@ -15,5 +16,11 @@ public interface ManageAccountDao {
 
 	void save(@Param("account") String account, @Param("type") int type);
 
+	AccountDetailDTO getDetail(int id);
+
+	void del(int id);
+
 	List<String> getNull();
+
+	List<String> getList4Timer(@Param("type") int type);
 }

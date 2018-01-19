@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -59,6 +60,19 @@ public class ManageAccountController {
 	@ResponseBody
 	public R save(String account, int type) {
 		accountService.save(account, type);
+		return R.ok();
+	}
+
+	@RequestMapping("detail/{id}")
+	@ResponseBody
+	public R detail(@PathVariable("id") int id) {
+		return R.ok(accountService.getDetail(id));
+	}
+
+	@RequestMapping("del/{id}")
+	@ResponseBody
+	public R del(@PathVariable("id") int id) {
+		accountService.del(id);
 		return R.ok();
 	}
 

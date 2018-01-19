@@ -16,11 +16,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import com.alibaba.druid.pool.DruidDataSource;
+
 @Configuration
 @SpringBootApplication
+@EnableScheduling
+@EnableAsync
 public class TokenMediaApplication {
 
 	public static void main(String[] args) {
@@ -75,7 +80,7 @@ public class TokenMediaApplication {
 		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
 		executor.setCorePoolSize(2);
 		executor.setMaxPoolSize(100);
-		executor.setQueueCapacity(10);
+		executor.setQueueCapacity(100);
 		// executor.setRejectedExecutionHandler(new
 		// ThreadPoolExecutor.CallerRunsPolicy()); // 对拒绝task的处理策略
 		executor.setKeepAliveSeconds(2);

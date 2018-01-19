@@ -3,26 +3,51 @@
 <mapper namespace="com.ailu.tokenmedia.manage.account.dao.ManageAccountDao">
 
 	<select id="getList" resultType="com.ailu.tokenmedia.manage.account.dto.AccountListDTO">
-		select id,wechat_id,biz_name,type from wechat
+		select id,wechat_id,biz_name,type from wechat where is_del =1
 		<if test="keyword != ''">
-			where biz_name like CONCAT('%',#{keyword},'%') 
+			and (biz_name like CONCAT('%',#{keyword},'%') or wechat_id like CONCAT('%',#{keyword},'%'))
 		</if>
 		limit #{start},#{length}
 	</select>
 	
 	<select id="getCount" resultType="int">
-		select count(0) from wechat
+		select count(0) from wechat where is_del =1
 		<if test="keyword != ''">
-			where biz_name like CONCAT('%',#{keyword},'%')
+			and (biz_name like CONCAT('%',#{keyword},'%') or wechat_id like CONCAT('%',#{keyword},'%'))
 		</if>
 	</select>
 
 	<insert id="save">
-		insert IGNORE into wechat (wechat_id,type) values (#{account},#{type})
+		insert IGNORE into wechat (wechat_id,type,is_del) values (#{account},#{type},1)
 	</insert>
 	
+	<select id="getDetail" resultType="com.ailu.tokenmedia.manage.account.dto.AccountDetailDTO">
+		SELECT w.id,w.wechat_id,w.qr_code,w.biz_name,w.head,w.biz_desc,wi.fans,wi.first_avg_read,
+		wi.second_avg_read,wi.third_more_avg_read,wi.article_count
+		FROM wechat w LEFT JOIN
+		wechat_info wi ON w.wechat_id=wi.wechat_id and wi.create_time = (
+		select max(create_time) from wechat_info where w.wechat_id=wechat_id group by wechat_id ) 
+		where w.id=#{id}
+	</select>
+	
+	<update id="del">
+		update wechat set is_del=2 where id=#{id}
+	</update>
+	
 	<select id="getNull" resultType="string">
-		select wechat_id from wechat where biz_name is null
+		select wechat_id from wechat where biz_name is null and is_del =1
+	</select>
+	
+	<select id="getList4Timer" resultType="string">
+		select wi.wechat_id from (
+		select wechat_id, max(create_time) create_time from wechat_info group by wechat_id ) wi
+		left join wechat w on wi.wechat_id=w.wechat_id where w.type = #{type} and w.is_del =1
+		<if test="type == 2">
+			and DATEDIFF(now(),wi.create_time) =14
+		</if>
+		<if test="type == 3">
+			and DATEDIFF(now(),wi.create_time) =28
+		</if>
 	</select>
 
 </mapper>

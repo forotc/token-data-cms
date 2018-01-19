@@ -1,14 +1,16 @@
 package com.ailu.tokenmedia.manage.obtain.service;
 
-import com.ailu.tokenmedia.utils.HttpclientUtils;
-import com.ailu.tokenmedia.utils.ObtainUtil;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Service;
+
+import com.ailu.tokenmedia.utils.HttpclientUtils;
+import com.ailu.tokenmedia.utils.ObtainUtil;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author liu zhenming
@@ -38,6 +40,7 @@ public class ObtainService {
 	 * @param wechatidList
 	 *            微信公众号id列表
 	 */
+	@Async
 	public void saveWechatInfo(List<String> wechatidList) {
 		for (String wechatid : wechatidList) {
 			ascynWechatId(wechatid);
@@ -64,6 +67,11 @@ public class ObtainService {
 			objectMapper = new ObjectMapper();
 			Map<String, Object> json = objectMapper
 					.readValue(HttpclientUtils.rawpost(obtainUtil.getDiagnosisAdd(), headers, body), Map.class);
+
+			// Map<String, Object> json = objectMapper
+			// .readValue(HttpUtil.doGet("http://openapi.xiguaji.com/v3/Version/get", null),
+			// Map.class);
+			System.out.println(json.toString());
 			if (json != null) {
 				// 如果返回1，就代表成功，开始访问结果接口
 				if (json.get("ResultCode").toString().equals("1")) {
@@ -115,14 +123,16 @@ public class ObtainService {
 	 * @param id
 	 *            微信公众号id
 	 */
+	@Async("taskExecutor")
 	private void ascynWechatId(String id) {
-		taskExecutor.execute(new Runnable() {
+		/*taskExecutor.execute(new Runnable() {
 			@Override
-			public void run() {
+			public void run() {*/
 				// 执行相关任务方法
 				getWechatInfoKey(id);
-			}
-		});
+				// System.out.println(id);
+		/*	}
+		});*/
 	}
 
 }
