@@ -285,17 +285,32 @@
 
     var r = new Array();
     var count = '${detail.firstAvgRead!0}';
-    r = randomDivide(count.replace(',',''),6);
-    function randomDivide(total, nums) {
-        r = Array.apply(null, { length: nums })
-            .map((n, i) => nums - i)
-            .map(n => {
-                var v = 1 + Math.floor(Math.random() * (total / n * 2 - 1));
-                total -= v;
-                return v;
-            });
-        r.push(total);
-        return r;
+    r = randAlloc(count.replace(',',''),0,count.replace(',','')/6,7);
+    function randAlloc(total, min, max, length) {
+
+        const result = [];
+        let restValue = total;
+        let restLength = length;
+        for (let i = 0; i < length - 1; i++) {
+             restLength--;
+            // 这一次要发的数量必须保证剩下的要足最小量
+            // 同进要保证剩下的不能大于需要的最大量
+            const restMin = restLength * min;
+            const restMax = restLength * max;
+            // 可发的量
+            const usable = restValue - restMin;
+            // 最少要发的量
+            const minValue = Math.max(min, restValue - restMax);
+            // 以 minValue 为最左，max 为中线来进行随机，即随机范围是 (max - minValue) * 2
+            // 如果这个范围大于 usable - minValue，取 usable - minValue
+            const limit = Math.min(usable - minValue, (max - minValue) * 2);
+            // 随机部分加上最少要发的部分就是应该发的，但是如果大于 max，最大取到 max
+            result[i] = Math.min(max, minValue + Math.floor(limit * Math.random()));
+            restValue -= result[i];
+        }
+        result[length - 1] = restValue;
+
+        return result;
     }
     
     var myChart=echarts.init(document.getElementById("myChart"),"wonderland");
