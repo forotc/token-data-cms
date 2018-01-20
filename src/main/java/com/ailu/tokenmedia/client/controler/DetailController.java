@@ -27,11 +27,23 @@ public class DetailController extends Base {
 		return "client/top_detail";
 	}
 
+	@RequestMapping("top/en")
+	public String topEn() {
+		return "client_en/top_detail";
+	}
+
 	@RequestMapping("detail/{id}")
 	public String detail(@PathVariable("id") int id, Model model) {
 		AccountDetailDTO accountDetail = accountService.getDetail(id);
 		model.addAttribute("detail", accountDetail);
 		return "client/wx_official_detail";
+	}
+
+	@RequestMapping("detail/en/{id}")
+	public String detailEn(@PathVariable("id") int id, Model model) {
+		AccountDetailDTO accountDetail = accountService.getDetail(id);
+		model.addAttribute("detail", accountDetail);
+		return "client_en/wx_official_detail";
 	}
 
 	@RequestMapping("list/{page}")
