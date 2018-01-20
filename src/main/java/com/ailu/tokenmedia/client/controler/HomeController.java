@@ -22,4 +22,11 @@ public class HomeController {
 		return "client/index";
 	}
 
+	@RequestMapping("home/en")
+	public String homeEn(Model model){
+		List<AccountDTO> list = accountService.getAccounts(0, 30);
+		model.addAttribute("accounts", list);
+		return "client_en/index";
+	}
+
 }
